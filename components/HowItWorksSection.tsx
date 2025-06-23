@@ -3,228 +3,224 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { MessageCircle, Brain, Shield, ArrowDown, Sparkles } from "lucide-react"
+import { MessageCircle, Brain, Shield, ArrowDown } from "lucide-react"
 
 export default function HowItWorksSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
+  const steps = [
+    {
+      icon: MessageCircle,
+      title: "Intelligent Conversations",
+      description: "Advanced NLP understands emotional context and responds with empathy",
+      details:
+        "Our AI processes natural language with deep emotional intelligence, recognizing subtle cues in your communication patterns.",
+      color: "#518591",
+      position: "left",
+    },
+    {
+      icon: Brain,
+      title: "Pattern Recognition",
+      description: "Machine learning identifies behavioral patterns and emotional triggers",
+      details:
+        "Sophisticated algorithms analyze your data to detect early warning signs and predict potential mental health episodes.",
+      color: "#e3b01c",
+      position: "center",
+    },
+    {
+      icon: Shield,
+      title: "Proactive Support",
+      description: "Real-time interventions and personalized coping strategies",
+      details:
+        "Immediate support when you need it most, with personalized recommendations based on your unique profile.",
+      color: "#518591",
+      position: "right",
+    },
+  ]
+
+  const metrics = [
+    { label: "Response Time", value: "<2s", icon: "⚡", color: "#518591" },
+    { label: "Accuracy Rate", value: "98.7%", icon: "🎯", color: "#e3b01c" },
+    { label: "Availability", value: "24/7", icon: "🔄", color: "#518591" },
+    { label: "Success Rate", value: "96.2%", icon: "✨", color: "#e3b01c" },
+  ]
+
   return (
     <section
       ref={ref}
-      className="py-24 bg-gradient-to-br from-white via-violet-50/30 to-purple-50/20 relative overflow-hidden"
+      className="py-24 bg-gradient-to-br from-[#518591]/5 via-white to-[#e3b01c]/5 relative overflow-hidden"
       id="how-it-works"
     >
-      {/* Animated Grid Background */}
-      <div className="absolute inset-0 opacity-5">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%238B5CF6' fillOpacity='0.1'%3E%3Cpath d='M30 30m-2 0a2 2 0 1 1 4 0a2 2 0 1 1 -4 0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23518591' fillOpacity='0.2'%3E%3Cpath d='M40 40m-20 0a20 20 0 1 1 40 0a20 20 0 1 1 -40 0M40 0v80M0 40h80'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="container mx-auto px-4 lg:px-8 relative">
+        {/* Header */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-32 h-32 bg-violet-200/20 rounded-full blur-2xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.6, 0.3],
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-purple-200/15 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2],
-            x: [0, -25, 0],
-            y: [0, 25, 0],
-          }}
-          transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY }}
-        />
-      </div>
-
-      <div className="container mx-auto px-4 relative">
-        <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-block mb-4"
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#518591] to-[#e3b01c] rounded-3xl mb-8 shadow-2xl"
             initial={{ scale: 0, rotate: -180 }}
             animate={isInView ? { scale: 1, rotate: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            whileHover={{ scale: 1.1, rotate: 5 }}
           >
-            <span className="text-4xl">🧠</span>
+            <Brain className="w-10 h-10 text-white" />
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-light text-black mb-6">
+
+          <h2 className="text-5xl md:text-7xl font-light text-gray-900 mb-8">
             How{" "}
-            <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
-              VitaMind
-            </span>{" "}
+            <span className="bg-gradient-to-r from-[#518591] to-[#e3b01c] bg-clip-text text-transparent">VitaMind</span>{" "}
             Works
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our advanced AI system combines cutting-edge technology with deep understanding of bipolar disorder to
-            provide personalized, intelligent support through a sophisticated architecture.
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Our advanced AI system combines cutting-edge technology with deep understanding of mental health to provide
+            personalized, intelligent support through a sophisticated three-step process.
           </p>
         </motion.div>
 
-        {/* Architecture Flow */}
-        <motion.div
-          className="max-w-4xl mx-auto"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
-          {/* Step 1: User Interaction */}
-          <div className="text-center mb-12">
-            <motion.div
-              className="inline-flex items-center space-x-6 bg-gradient-to-r from-violet-50 to-purple-50 rounded-3xl px-8 py-6 shadow-xl border border-violet-100"
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-                <MessageCircle className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-left">
-                <div className="text-black font-semibold text-lg">Intelligent Conversations</div>
-                <div className="text-gray-600">Natural language processing for emotional context</div>
-              </div>
+        {/* Steps Flow */}
+        <div className="max-w-6xl mx-auto mb-20">
+          {steps.map((step, index) => (
+            <div key={index} className="relative mb-16 last:mb-0">
+              {/* Step Card */}
               <motion.div
-                className="w-8 h-8 bg-violet-200/50 rounded-full flex items-center justify-center"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                className={`flex flex-col lg:flex-row items-center gap-12 ${
+                  step.position === "right" ? "lg:flex-row-reverse" : ""
+                } ${step.position === "center" ? "justify-center" : ""}`}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
               >
-                <Sparkles className="w-4 h-4 text-violet-600" />
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Connection Arrow */}
-          <motion.div
-            className="flex justify-center mb-8"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-          >
-            <div className="flex flex-col items-center">
-              <ArrowDown className="w-8 h-8 text-violet-400" />
-              <div className="w-px h-8 bg-gradient-to-b from-violet-400 to-transparent mt-2"></div>
-            </div>
-          </motion.div>
-
-          {/* Step 2: AI Processing */}
-          <div className="text-center mb-12">
-            <motion.div
-              className="inline-block bg-white border-2 border-violet-200 rounded-3xl p-8 shadow-2xl max-w-md"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-                  <Brain className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <h3 className="text-black font-semibold text-lg mb-2">AI Pattern Recognition</h3>
-              <p className="text-gray-600 mb-4">
-                Advanced algorithms detect early warning signs and emotional patterns
-              </p>
-              <div className="space-y-2">
-                {[
-                  "Machine learning models trained on bipolar patterns",
-                  "Predictive analytics for episode forecasting",
-                  "Behavioral pattern analysis and identification",
-                  "Continuous learning from your unique data",
-                ].map((feature, index) => (
+                {/* Content */}
+                <div className={`flex-1 ${step.position === "center" ? "text-center max-w-2xl" : ""}`}>
                   <motion.div
-                    key={index}
-                    className="flex items-start space-x-2 text-sm"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                    className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 shadow-lg ${
+                      step.position === "center" ? "mx-auto" : ""
+                    }`}
+                    style={{
+                      background: `linear-gradient(135deg, ${step.color}, ${step.color}80)`,
+                    }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <div className="w-1.5 h-1.5 bg-violet-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-600">{feature}</span>
+                    <step.icon className="w-8 h-8 text-white" />
                   </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
 
-          {/* Connection Arrow */}
-          <motion.div
-            className="flex justify-center mb-8"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 0.5 }}
-          >
-            <div className="flex flex-col items-center">
-              <ArrowDown className="w-8 h-8 text-violet-400" />
-              <div className="w-px h-8 bg-gradient-to-b from-violet-400 to-transparent mt-2"></div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{step.title}</h3>
+                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">{step.description}</p>
+                  <p className="text-gray-500 leading-relaxed">{step.details}</p>
+                </div>
+
+                {/* Visual Element */}
+                {step.position !== "center" && (
+                  <div className="flex-1 flex justify-center">
+                    <motion.div
+                      className="relative w-80 h-80 bg-gradient-to-br from-white to-[#518591]/5 rounded-3xl border border-[#518591]/10 shadow-2xl flex items-center justify-center"
+                      whileHover={{ scale: 1.05, rotate: 2 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <motion.div
+                        className="w-32 h-32 rounded-2xl flex items-center justify-center shadow-xl"
+                        style={{
+                          background: `linear-gradient(135deg, ${step.color}, ${step.color}60)`,
+                        }}
+                        animate={{
+                          scale: [1, 1.1, 1],
+                          rotate: [0, 5, 0],
+                        }}
+                        transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
+                      >
+                        <step.icon className="w-16 h-16 text-white" />
+                      </motion.div>
+
+                      {/* Floating Elements */}
+                      {[...Array(3)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-4 h-4 rounded-full"
+                          style={{
+                            background: i % 2 === 0 ? step.color : "#e3b01c",
+                            top: `${20 + i * 25}%`,
+                            right: `${10 + i * 15}%`,
+                          }}
+                          animate={{
+                            y: [0, -20, 0],
+                            opacity: [0.3, 0.8, 0.3],
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Number.POSITIVE_INFINITY,
+                            delay: i * 0.5,
+                          }}
+                        />
+                      ))}
+                    </motion.div>
+                  </div>
+                )}
+              </motion.div>
+
+              {/* Connection Arrow */}
+              {index < steps.length - 1 && (
+                <motion.div
+                  className="flex justify-center my-12"
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+                >
+                  <motion.div
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                    className="flex flex-col items-center"
+                  >
+                    <ArrowDown className="w-8 h-8 text-[#518591]/60" />
+                    <div className="w-px h-12 bg-gradient-to-b from-[#518591]/60 to-transparent mt-2" />
+                  </motion.div>
+                </motion.div>
+              )}
             </div>
-          </motion.div>
+          ))}
+        </div>
 
-          {/* Step 3: Proactive Support */}
-          <div className="text-center">
+        {/* Performance Metrics */}
+        <motion.div
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1, delay: 1.2 }}
+        >
+          {metrics.map((metric, index) => (
             <motion.div
-              className="inline-flex items-center space-x-6 bg-gradient-to-r from-purple-50 to-violet-50 rounded-3xl px-8 py-6 shadow-xl border border-purple-100"
+              key={index}
+              className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#518591]/10 hover:border-[#518591]/30 transition-all duration-300 shadow-lg hover:shadow-xl group"
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.6, delay: 1.4 + index * 0.1 }}
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg">
-                <Shield className="w-8 h-8 text-white" />
+              <div className="text-3xl mb-3">{metric.icon}</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: metric.color }}>
+                {metric.value}
               </div>
-              <div className="text-left">
-                <div className="text-black font-semibold text-lg">Proactive Intervention</div>
-                <div className="text-gray-600">Immediate support and crisis prevention when needed</div>
-              </div>
-              <motion.div
-                className="w-8 h-8 bg-purple-200/50 rounded-full flex items-center justify-center"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 1 }}
-              >
-                <Shield className="w-4 h-4 text-purple-600" />
-              </motion.div>
-            </motion.div>
-          </div>
+              <div className="text-sm text-gray-600 font-medium">{metric.label}</div>
 
-          {/* Performance Metrics */}
-          <motion.div
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, delay: 1.2 }}
-          >
-            {[
-              { label: "Processing Speed", value: "<100ms", icon: "⚡" },
-              { label: "Accuracy Rate", value: "98%", icon: "🎯" },
-              { label: "Response Time", value: "24/7", icon: "🔄" },
-              { label: "Success Rate", value: "95%", icon: "✨" },
-            ].map((metric, index) => (
-              <motion.div
-                key={index}
-                className="text-center p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-violet-100 hover:border-violet-200 transition-all duration-300 shadow-lg"
-                whileHover={{ scale: 1.05, y: -2 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="text-2xl mb-2">{metric.icon}</div>
-                <div className="text-2xl font-bold text-violet-600 mb-1">{metric.value}</div>
-                <div className="text-sm text-gray-600">{metric.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+              {/* Hover Effect */}
+              <motion.div className="absolute inset-0 bg-gradient-to-br from-[#518591]/5 to-[#e3b01c]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
