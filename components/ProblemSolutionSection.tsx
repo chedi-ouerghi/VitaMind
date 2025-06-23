@@ -67,14 +67,20 @@ export default function ProblemSolutionSection() {
   ]
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-br from-white to-[#518591]/5 relative overflow-hidden">
+    <section
+      ref={ref}
+      className="relative py-24 bg-gradient-to-br from-white to-[#518591]/5  overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #ffffff 70%, #518591 100%)",
+      }}
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-20">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23518591' fillOpacity='0.1'%3E%3Cpath d='M50 50m-20 0a20 20 0 1 1 40 0a20 20 0 1 1 -40 0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
+        background: "linear-gradient(135deg, #ffffff 70%, #518591 100%)",
+      }}
         />
       </div>
 

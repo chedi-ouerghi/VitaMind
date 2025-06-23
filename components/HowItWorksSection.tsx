@@ -51,14 +51,17 @@ export default function HowItWorksSection() {
       ref={ref}
       className="py-24 bg-gradient-to-br from-[#518591]/5 via-white to-[#e3b01c]/5 relative overflow-hidden"
       id="how-it-works"
+      style={{
+        background: "linear-gradient(-135deg, #ffffff 70%, #518591 100%)"
+      }}
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23518591' fillOpacity='0.2'%3E%3Cpath d='M40 40m-20 0a20 20 0 1 1 40 0a20 20 0 1 1 -40 0M40 0v80M0 40h80'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
+        background: "linear-gradient(135deg, #ffffff 70%, #518591 100%)",
+      }}
         />
       </div>
 
@@ -206,7 +209,6 @@ export default function HowItWorksSection() {
               key={index}
               className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#518591]/10 hover:border-[#518591]/30 transition-all duration-300 shadow-lg hover:shadow-xl group"
               whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.3 }}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 1.4 + index * 0.1 }}

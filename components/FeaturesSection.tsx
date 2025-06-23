@@ -56,7 +56,14 @@ export default function FeaturesSection() {
   const [activeFeature, setActiveFeature] = useState(0)
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-br from-violet-50 via-white to-purple-50" id="features">
+    <section
+      ref={ref}
+      className="py-24 bg-white"
+      id="features"
+      style={{
+        background: "linear-gradient(-135deg, #ffffff 70%, #518591 100%)"
+      }}
+    >
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -72,13 +79,13 @@ export default function FeaturesSection() {
           >
             <span className="text-4xl">⚡</span>
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-light text-black mb-6">
+          <h2 className="text-4xl md:text-6xl font-light text-[#518591] mb-6">
             Powerful{" "}
-            <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#518591] to-[#e3b01c] bg-clip-text text-transparent">
               Features
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-[#518591]/80 max-w-3xl mx-auto">
             Cutting-edge technology meets deep understanding of mental health to deliver transformative experiences.
           </p>
         </motion.div>
@@ -98,8 +105,8 @@ export default function FeaturesSection() {
                   key={index}
                   className={`p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 ${
                     activeFeature === index
-                      ? `border-${feature.color}-300 bg-${feature.color}-50 shadow-lg`
-                      : "border-gray-200 bg-white hover:border-violet-200 hover:bg-violet-50"
+                      ? "border-[#518591] bg-[#518591]/10 shadow-lg"
+                      : "border-[#518591]/10 bg-white hover:border-[#e3b01c] hover:bg-[#e3b01c]/10"
                   }`}
                   onClick={() => setActiveFeature(index)}
                   whileHover={{ scale: 1.02 }}
@@ -108,7 +115,9 @@ export default function FeaturesSection() {
                   <div className="flex items-start space-x-4">
                     <motion.div
                       className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                        activeFeature === index ? `bg-${feature.color}-500 text-white` : "bg-gray-100 text-gray-600"
+                        activeFeature === index
+                          ? "bg-[#518591] text-white"
+                          : "bg-[#e3b01c]/10 text-[#518591]"
                       }`}
                       animate={{
                         scale: activeFeature === index ? 1.1 : 1,
@@ -121,12 +130,12 @@ export default function FeaturesSection() {
                     <div className="flex-1">
                       <h3
                         className={`text-lg font-semibold mb-2 ${
-                          activeFeature === index ? "text-black" : "text-gray-800"
+                          activeFeature === index ? "text-[#518591]" : "text-[#518591]/80"
                         }`}
                       >
                         {feature.title}
                       </h3>
-                      <p className="text-gray-600 text-sm">{feature.description}</p>
+                      <p className="text-[#518591]/70 text-sm">{feature.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -140,10 +149,10 @@ export default function FeaturesSection() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-violet-100">
+              <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-[#518591]/10">
                 {/* Animated Background */}
                 <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br from-${features[activeFeature].color}-100 to-${features[activeFeature].color}-50 rounded-3xl opacity-50`}
+                  className="absolute inset-0 bg-[#518591]/10 rounded-3xl opacity-50"
                   key={activeFeature}
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 0.5 }}
@@ -152,7 +161,7 @@ export default function FeaturesSection() {
 
                 <div className="relative z-10">
                   <motion.div
-                    className={`w-20 h-20 bg-gradient-to-br from-${features[activeFeature].color}-500 to-${features[activeFeature].color}-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                    className="w-20 h-20 bg-gradient-to-br from-[#518591] to-[#e3b01c] rounded-2xl flex items-center justify-center mb-6 shadow-lg"
                     key={activeFeature}
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
@@ -165,7 +174,7 @@ export default function FeaturesSection() {
                   </motion.div>
 
                   <motion.h3
-                    className="text-2xl font-bold text-black mb-4"
+                    className="text-2xl font-bold text-[#518591] mb-4"
                     key={`title-${activeFeature}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -175,7 +184,7 @@ export default function FeaturesSection() {
                   </motion.h3>
 
                   <motion.p
-                    className="text-gray-600 text-lg leading-relaxed"
+                    className="text-[#518591]/80 text-lg leading-relaxed"
                     key={`details-${activeFeature}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -186,7 +195,7 @@ export default function FeaturesSection() {
 
                   {/* Decorative Elements */}
                   <motion.div
-                    className="absolute top-4 right-4 w-16 h-16 rounded-full bg-gradient-to-br from-violet-200/30 to-purple-200/30 blur-xl"
+                    className="absolute top-4 right-4 w-16 h-16 rounded-full bg-[#e3b01c]/20 blur-xl"
                     animate={{
                       scale: [1, 1.2, 1],
                       opacity: [0.3, 0.6, 0.3],

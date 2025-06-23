@@ -69,11 +69,18 @@ export default function TechnologySection() {
   }
 
   return (
-    <section ref={ref} className="py-24 bg-white relative overflow-hidden" id="technology">
+    <section
+      ref={ref}
+      className="py-24 bg-white relative overflow-hidden"
+      id="technology"
+      style={{
+        background: "linear-gradient(135deg, #ffffff 70%, #518591 100%)"
+      }}
+    >
       {/* Animated Background Circles */}
       <div className="absolute inset-0 -z-10">
         <motion.div
-          className="absolute top-1/4 left-1/6 w-50 h-50 bg-gradient-to-br from-violet-200/30 to-purple-200/30 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/6 w-50 h-50 bg-[#518591]/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.3, 0.6, 0.3],
@@ -83,7 +90,7 @@ export default function TechnologySection() {
           transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute top-1/3 right-1/5 w-50 h-50 bg-gradient-to-br from-purple-200/25 to-pink-200/25 rounded-full blur-3xl"
+          className="absolute top-1/3 right-1/5 w-50 h-50 bg-[#e3b01c]/10 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.25, 0.5, 0.25],
@@ -93,7 +100,7 @@ export default function TechnologySection() {
           transition={{ duration: 18, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-1/3 left-1/4 w-50 h-50 bg-gradient-to-br from-indigo-200/20 to-violet-200/20 rounded-full blur-3xl"
+          className="absolute bottom-1/3 left-1/4 w-50 h-50 bg-[#518591]/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.4, 1],
             opacity: [0.2, 0.4, 0.2],
@@ -103,7 +110,7 @@ export default function TechnologySection() {
           transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/3 w-50 h-50 bg-gradient-to-br from-violet-200/35 to-purple-200/35 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/3 w-50 h-50 bg-[#e3b01c]/10 rounded-full blur-3xl"
           animate={{
             scale: [1.3, 1, 1.3],
             opacity: [0.35, 0.7, 0.35],
@@ -123,7 +130,7 @@ export default function TechnologySection() {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-violet-500 to-purple-500 rounded-3xl mb-6 shadow-2xl"
+            className="inline-flex items-center justify-center w-20 h-20 bg-[#518591] rounded-3xl mb-6 shadow-2xl"
             initial={{ scale: 0, rotate: 180 }}
             animate={isInView ? { scale: 1, rotate: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -132,16 +139,16 @@ export default function TechnologySection() {
             <Users className="w-10 h-10 text-white" />
           </motion.div>
 
-          <h2 className="text-5xl md:text-7xl font-light text-black mb-6">
+          <h2 className="text-5xl md:text-7xl font-light text-[#518591] mb-6">
             Professional{" "}
-            <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#518591] to-[#e3b01c] bg-clip-text text-transparent">
               Assessment
             </span>{" "}
             Tools
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-[#518591]/80 max-w-4xl mx-auto leading-relaxed">
             Empower parents with comprehensive, scientifically-backed assessment tools designed by mental health
-            professionals to understand and support their children's emotional well-being.
+            professionals to understand and support their children&apos;s emotional well-being.
           </p>
         </motion.div>
 
@@ -158,8 +165,8 @@ export default function TechnologySection() {
               onClick={() => setActiveCategory(category.id)}
               className={`group relative flex flex-col items-center p-6 rounded-2xl border-2 transition-all duration-500 min-w-[200px] ${
                 activeCategory === category.id
-                  ? `bg-gradient-to-br ${category.color} text-white border-transparent shadow-2xl scale-105`
-                  : "bg-white/80 backdrop-blur-sm text-gray-700 border-violet-200 hover:border-violet-300 hover:bg-violet-50/50 hover:scale-102"
+                  ? "bg-[#518591] text-white border-transparent shadow-2xl scale-105"
+                  : "bg-white/80 backdrop-blur-sm text-[#518591] border-[#518591]/20 hover:border-[#e3b01c] hover:bg-[#e3b01c]/10 hover:scale-102"
               }`}
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.98 }}
@@ -169,17 +176,17 @@ export default function TechnologySection() {
             >
               <div
                 className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-all duration-300 ${
-                  activeCategory === category.id ? "bg-white/20" : "bg-violet-100 group-hover:bg-violet-200"
+                  activeCategory === category.id ? "bg-white/20" : "bg-[#518591]/10 group-hover:bg-[#e3b01c]/10"
                 }`}
               >
                 <category.icon
-                  className={`w-6 h-6 ${activeCategory === category.id ? "text-white" : "text-violet-600"}`}
+                  className={`w-6 h-6 ${activeCategory === category.id ? "text-white" : "text-[#518591]"}`}
                 />
               </div>
               <span className="font-semibold text-lg mb-1">{category.title}</span>
               <span
                 className={`text-sm text-center leading-tight ${
-                  activeCategory === category.id ? "text-white/80" : "text-gray-500"
+                  activeCategory === category.id ? "text-white/80" : "text-[#518591]/80"
                 }`}
               >
                 {category.description.split(" ").slice(0, 4).join(" ")}...
@@ -200,36 +207,36 @@ export default function TechnologySection() {
             {/* Category Header */}
             <div className="text-center mb-12">
               <div
-                className={`inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br ${activeTest.color} rounded-3xl mb-6 shadow-2xl`}
+                className="inline-flex items-center justify-center w-24 h-24 bg-[#518591] rounded-3xl mb-6 shadow-2xl"
               >
                 <activeTest.icon className="w-12 h-12 text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-black mb-4">{activeTest.title}</h3>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">{activeTest.description}</p>
+              <h3 className="text-3xl font-bold text-[#518591] mb-4">{activeTest.title}</h3>
+              <p className="text-lg text-[#518591]/80 max-w-2xl mx-auto">{activeTest.description}</p>
 
               {/* Stats */}
               <div className="flex justify-center gap-8 mt-8">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-violet-600">{activeTest.stats.accuracy}</div>
-                  <div className="text-sm text-gray-500">Accuracy</div>
+                  <div className="text-2xl font-bold text-[#518591]">{activeTest.stats.accuracy}</div>
+                  <div className="text-sm text-[#518591]/80">Accuracy</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600">{activeTest.stats.duration}</div>
-                  <div className="text-sm text-gray-500">Duration</div>
+                  <div className="text-2xl font-bold text-[#e3b01c]">{activeTest.stats.duration}</div>
+                  <div className="text-sm text-[#518591]/80">Duration</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-indigo-600">{activeTest.stats.reports}</div>
-                  <div className="text-sm text-gray-500">Reports</div>
+                  <div className="text-2xl font-bold text-[#518591]">{activeTest.stats.reports}</div>
+                  <div className="text-sm text-[#518591]/80">Reports</div>
                 </div>
               </div>
             </div>
 
             {/* Assessment Tests Grid */}
             <div
-              className={`bg-gradient-to-br ${activeTest.bgColor} rounded-3xl p-8 border border-violet-100 shadow-2xl`}
+              className="bg-white rounded-3xl p-8 border border-[#518591]/10 shadow-2xl"
             >
               <div className="flex items-center mb-8">
-                <CheckCircle className="w-6 h-6 text-violet-600 mr-3" />
+                <CheckCircle className="w-6 h-6 text-[#518591] mr-3" />
                 <h4 className="text-xl font-bold text-black">Professional Assessment Battery</h4>
               </div>
 
@@ -237,7 +244,7 @@ export default function TechnologySection() {
                 {activeTest.tests.map((test, index) => (
                   <motion.div
                     key={test}
-                    className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-violet-100 hover:border-violet-300 transition-all duration-300 cursor-pointer group hover:shadow-lg"
+                    className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-[#518591]/10 hover:border-[#e3b01c] transition-all duration-300 cursor-pointer group hover:shadow-lg"
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -247,11 +254,11 @@ export default function TechnologySection() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
                         <motion.div
-                          className="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg"
+                          className="w-10 h-10 bg-[#518591] rounded-xl flex items-center justify-center shadow-lg"
                           whileHover={{ rotate: 360, scale: 1.1 }}
                           transition={{ duration: 0.6 }}
                         >
-                          <Star className="w-5 h-5 text-white" />
+                          <Star className="w-5 h-5 text-[#e3b01c]" />
                         </motion.div>
                         <div>
                           <span className="text-black font-semibold text-lg group-hover:text-violet-700 transition-colors">
@@ -283,7 +290,7 @@ export default function TechnologySection() {
                     >
                       <div className="pt-4 pl-14 border-t border-violet-100 mt-4">
                         <p className="text-gray-600 leading-relaxed mb-3">
-                          Comprehensive evaluation providing detailed insights into your child's{" "}
+                          Comprehensive evaluation providing detailed insights into your child&apos;s{" "}
                           {activeTest.title.toLowerCase()} patterns, development milestones, and personalized
                           recommendations for optimal support.
                         </p>
@@ -311,13 +318,13 @@ export default function TechnologySection() {
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <motion.button
-                  className={`bg-gradient-to-r ${activeTest.color} text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 group relative overflow-hidden`}
+                  className="bg-[#518591] text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:bg-[#e3b01c] hover:text-[#518591] hover:shadow-[#e3b01c]/30 transition-all duration-300 group relative overflow-hidden"
                   whileHover={{ scale: 1.05, y: -3 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <span className="relative z-10 flex items-center">
                     Begin {activeTest.title}
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform text-[#e3b01c]" />
                   </span>
                   <motion.div
                     className="absolute inset-0 bg-white/20"
@@ -339,22 +346,20 @@ export default function TechnologySection() {
           transition={{ duration: 1, delay: 0.8 }}
         >
           {[
-            { label: "Assessment Types", value: "15+", icon: "📋", color: "from-violet-500 to-purple-500" },
-            { label: "Success Rate", value: "96%", icon: "🎯", color: "from-purple-500 to-pink-500" },
-            { label: "Families Helped", value: "25k+", icon: "👨‍👩‍👧‍👦", color: "from-indigo-500 to-violet-500" },
-            { label: "Expert Reviews", value: "4.9/5", icon: "⭐", color: "from-pink-500 to-rose-500" },
+            { label: "Assessment Types", value: "15+", icon: "📋" },
+            { label: "Success Rate", value: "96%", icon: "🎯" },
+            { label: "Families Helped", value: "25k+", icon: "👨‍👩‍👧‍👦" },
+            { label: "Expert Reviews", value: "4.9/5", icon: "⭐" },
           ].map((stat, index) => (
             <motion.div
               key={index}
-              className="text-center p-8 bg-white/90 backdrop-blur-sm rounded-3xl border border-violet-100 hover:border-violet-300 transition-all duration-300 shadow-xl group hover:shadow-2xl"
-              whileHover={{ scale: 1.05, y: -8 }}
-              transition={{ duration: 0.3 }}
+              className="text-center p-8 bg-white/90 backdrop-blur-sm rounded-3xl border border-[#518591]/10 hover:border-[#e3b01c] transition-all duration-300 shadow-xl group hover:shadow-2xl"
             >
-              <div className="text-4xl mb-4 group-hover:scale-125 transition-transform duration-300">{stat.icon}</div>
-              <div className={`text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>
+              <div className={"text-4xl mb-4 group-hover:scale-125 transition-transform duration-300 "}>{stat.icon}</div>
+              <div className="text-4xl font-bold text-[#518591] mb-2">
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-600 font-semibold">{stat.label}</div>
+              <div className="text-sm text-[#518591]/80 font-semibold">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

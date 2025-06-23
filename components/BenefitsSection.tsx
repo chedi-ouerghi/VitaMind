@@ -55,7 +55,13 @@ export default function BenefitsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-24 bg-white relative overflow-hidden">
+    <section
+      ref={ref}
+      className="py-24 bg-white relative overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #ffffff 70%, #518591 100%)",
+      }}
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -81,14 +87,14 @@ export default function BenefitsSection() {
           >
             <span className="text-4xl">🧠</span>
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-light text-black mb-6">
+          <h2 className="text-4xl md:text-6xl font-light text-[#518591] mb-6">
             Why Choose{" "}
-            <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#518591] to-[#e3b01c] bg-clip-text text-transparent">
               VitaMind
             </span>
             ?
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-[#518591]/80 max-w-3xl mx-auto">
             Experience the next generation of mental health support with AI technology designed specifically for your
             wellbeing.
           </p>
@@ -106,11 +112,11 @@ export default function BenefitsSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div
-                  className={`relative bg-gradient-to-br ${benefit.bgGradient} rounded-3xl p-8 border border-violet-100 hover:border-violet-200 transition-all duration-500 h-full group-hover:shadow-2xl group-hover:shadow-violet-500/10`}
+                  className="relative bg-white rounded-3xl p-8 border border-[#518591]/10 hover:border-[#e3b01c] transition-all duration-500 h-full group-hover:shadow-2xl group-hover:shadow-[#e3b01c]/10"
                 >
                   {/* Floating Icon */}
                   <motion.div
-                    className={`w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                    className="w-16 h-16 bg-gradient-to-br from-[#518591] to-[#e3b01c] rounded-2xl flex items-center justify-center mb-6 shadow-lg"
                     whileHover={{
                       scale: 1.1,
                       rotate: [0, -5, 5, 0],
@@ -121,16 +127,16 @@ export default function BenefitsSection() {
                     <benefit.icon className="w-8 h-8 text-white" />
                   </motion.div>
 
-                  <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-violet-700 transition-colors">
+                  <h3 className="text-xl font-semibold text-[#518591] mb-4 group-hover:text-[#e3b01c] transition-colors">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors leading-relaxed">
+                  <p className="text-[#518591]/80 group-hover:text-[#e3b01c] transition-colors leading-relaxed">
                     {benefit.description}
                   </p>
 
                   {/* Decorative Elements */}
                   <motion.div
-                    className="absolute top-4 right-4 w-8 h-8 rounded-full bg-violet-200/30"
+                    className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#e3b01c]/20"
                     animate={{
                       scale: [1, 1.2, 1],
                       opacity: [0.3, 0.6, 0.3],
@@ -140,7 +146,7 @@ export default function BenefitsSection() {
 
                   {/* Hover Effect Line */}
                   <motion.div
-                    className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${benefit.gradient} rounded-b-3xl`}
+                    className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#518591] to-[#e3b01c] rounded-b-3xl"
                     initial={{ scaleX: 0 }}
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
@@ -159,20 +165,20 @@ export default function BenefitsSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: 0.8 }}
         >
-          <div className="inline-flex items-center space-x-8 bg-gradient-to-r from-violet-50 to-purple-50 rounded-full px-8 py-4 border border-violet-100">
+          <div className="inline-flex items-center space-x-8 bg-white rounded-full px-8 py-4 border border-[#518591]/10">
             <div className="text-center">
-              <div className="text-2xl font-bold text-violet-600">98%</div>
-              <div className="text-sm text-gray-600">Accuracy</div>
+              <div className="text-2xl font-bold text-[#518591]">98%</div>
+              <div className="text-sm text-[#518591]/80">Accuracy</div>
             </div>
-            <div className="w-px h-8 bg-violet-200"></div>
+            <div className="w-px h-8 bg-[#518591]/10"></div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-purple-600">24/7</div>
-              <div className="text-sm text-gray-600">Available</div>
+              <div className="text-2xl font-bold text-[#e3b01c]">24/7</div>
+              <div className="text-sm text-[#518591]/80">Available</div>
             </div>
-            <div className="w-px h-8 bg-violet-200"></div>
+            <div className="w-px h-8 bg-[#518591]/10"></div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-violet-600">50k+</div>
-              <div className="text-sm text-gray-600">Users</div>
+              <div className="text-2xl font-bold text-[#518591]">50k+</div>
+              <div className="text-sm text-[#518591]/80">Users</div>
             </div>
           </div>
         </motion.div>

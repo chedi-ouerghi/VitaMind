@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, Shield, Heart } from "lucide-react"
 
@@ -10,20 +10,36 @@ export default function CTASection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
+  // Fix hydration: generate particle positions only on client
+  const [particles, setParticles] = useState<{ left: number; top: number }[]>([])
+
+  useEffect(() => {
+    // Generate positions only on client
+    setParticles(
+      Array.from({ length: 24 }, () => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+      }))
+    )
+  }, [])
+
   return (
     <section
       ref={ref}
-      className="relative py-32 bg-gradient-to-br from-gray-950 via-blue-950/40 to-purple-950/40 overflow-hidden min-h-[80vh] flex items-center"
+      className="relative py-32 bg-white overflow-hidden min-h-[80vh] flex items-center"
+      style={{
+        background: "linear-gradient(-135deg, #ffffff 70%, #518591 100%)"
+      }}
     >
       {/* Futuristic glassmorphism background */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-[32rem] h-[32rem] bg-blue-500/20 rounded-full blur-[120px]"
+          className="absolute top-1/4 left-1/4 w-[32rem] h-[32rem] bg-[#518591]/20 rounded-full blur-[120px]"
           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.5, 0.2] }}
           transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[36rem] h-[36rem] bg-purple-500/20 rounded-full blur-[140px]"
+          className="absolute bottom-1/4 right-1/4 w-[36rem] h-[36rem] bg-[#e3b01c]/20 rounded-full blur-[140px]"
           animate={{ scale: [1.1, 1, 1.1], opacity: [0.15, 0.4, 0.15] }}
           transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY }}
         />
@@ -36,22 +52,22 @@ export default function CTASection() {
 
       {/* Floating particles */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(24)].map((_, i) => (
+        {particles.map((pos, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-blue-400/30 rounded-full shadow-lg"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${pos.left}%`,
+              top: `${pos.top}%`,
             }}
             animate={{
               y: [0, -30, 0],
               opacity: [0.2, 0.7, 0.2],
             }}
             transition={{
-              duration: 3.5 + Math.random() * 2.5,
+              duration: 3.5 + (i % 12) * 0.2,
               repeat: Number.POSITIVE_INFINITY,
-              delay: Math.random() * 2,
+              delay: (i % 12) * 0.1,
             }}
           />
         ))}
@@ -64,26 +80,26 @@ export default function CTASection() {
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-block px-6 py-3 bg-gradient-to-r from-blue-500/30 to-purple-500/30 border border-blue-500/40 rounded-full text-base text-blue-200 mb-8 shadow-xl backdrop-blur-md">
-            <Sparkles className="inline w-5 h-5 mr-2" />
-            Join the Mental Health Revolution
+          <span className="inline-block px-6 py-3 bg-[#e3b01c]/10 border border-[#e3b01c]/30 rounded-full text-base text-[#518591] mb-8 shadow-xl backdrop-blur-md font-semibold tracking-wide">
+            <Sparkles className="inline w-5 h-5 mr-2 text-[#e3b01c]" />
+            Join the mental health revolution
           </span>
         </motion.div>
 
         <motion.h2
-          className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-8 drop-shadow-xl"
+          className="text-4xl md:text-6xl lg:text-7xl font-light text-[#518591] mb-8 drop-shadow-xl"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8 }}
         >
-          Ready to Transform Your
-          <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold drop-shadow-lg">
-            Mental Health Journey?
+          Ready to transform your
+          <span className="block bg-gradient-to-r from-[#518591] to-[#e3b01c] bg-clip-text text-transparent font-semibold drop-shadow-lg">
+            mental health journey?
           </span>
         </motion.h2>
 
         <motion.p
-          className="text-xl md:text-2xl text-blue-100 mb-14 max-w-3xl mx-auto leading-relaxed backdrop-blur-sm bg-white/5 rounded-xl px-6 py-4 shadow-lg"
+          className="text-xl md:text-2xl text-[#518591] mb-14 max-w-3xl mx-auto leading-relaxed backdrop-blur-sm bg-white/80 rounded-xl px-6 py-4 shadow-lg"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -117,15 +133,15 @@ export default function CTASection() {
           ].map((feature, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center text-center p-6 bg-white/10 backdrop-blur-lg rounded-2xl border border-blue-500/10 shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105"
+              className="flex flex-col items-center text-center p-6 bg-white/80 backdrop-blur-lg rounded-2xl border border-[#518591]/10 shadow-2xl hover:shadow-[#e3b01c]/30 transition-all duration-300 hover:scale-105"
               whileHover={{ scale: 1.08, y: -4 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-xl flex items-center justify-center mb-4 shadow-md">
-                <feature.icon className="w-7 h-7 text-blue-300" />
+              <div className="w-14 h-14 bg-gradient-to-br from-[#518591]/20 to-[#e3b01c]/20 rounded-xl flex items-center justify-center mb-4 shadow-md">
+                <feature.icon className="w-7 h-7 text-[#518591]" />
               </div>
-              <h3 className="text-white font-semibold mb-2 text-lg">{feature.title}</h3>
-              <p className="text-blue-100 text-base leading-relaxed">{feature.description}</p>
+              <h3 className="text-[#518591] font-semibold mb-2 text-lg">{feature.title}</h3>
+              <p className="text-[#518591]/80 text-base leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -138,23 +154,23 @@ export default function CTASection() {
         >
           <Button
             size="lg"
-            className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-14 py-7 text-xl rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-110 group font-semibold tracking-wide"
+            className="bg-[#518591] hover:bg-[#e3b01c] text-white px-14 py-7 text-xl rounded-full shadow-2xl hover:shadow-[#e3b01c]/25 transition-all duration-300 hover:scale-110 group font-semibold tracking-wide"
           >
             Start Free Trial
-            <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform text-[#e3b01c]" />
           </Button>
 
           <Button
             variant="outline"
             size="lg"
-            className="border-blue-400 text-blue-200 hover:bg-blue-900/30 hover:text-white px-10 py-7 text-lg rounded-full group shadow-lg font-semibold tracking-wide"
+            className="border-[#518591] text-[#518591] hover:bg-[#e3b01c]/10 hover:text-[#e3b01c] px-10 py-7 text-lg rounded-full group shadow-lg font-semibold tracking-wide"
           >
             Schedule Demo
           </Button>
         </motion.div>
 
         <motion.p
-          className="mt-12 text-blue-200 text-base backdrop-blur-sm bg-white/5 rounded-full inline-block px-8 py-3 shadow-md"
+          className="mt-12 text-[#518591] text-base backdrop-blur-sm bg-white/80 rounded-full inline-block px-8 py-3 shadow-md"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
