@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play, Sparkles, Zap, Brain, Target } from "lucide-react"
@@ -9,9 +9,6 @@ import QuantumParticleField from "./QuantumParticleField"
 export default function QuantumHeroSection() {
   const [displayText, setDisplayText] = useState("")
   const [currentPhase, setCurrentPhase] = useState(0)
-  const { scrollY } = useScroll()
-  const y = useTransform(scrollY, [0, 500], [0, 150])
-  const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
   const phases = [
     "The Future of Mental Health",
@@ -69,7 +66,7 @@ export default function QuantumHeroSection() {
         />
       </div>
 
-      <motion.div style={{ y, opacity }} className="relative z-10 text-center px-4 max-w-7xl mx-auto pt-20">
+      <div className="relative z-10 text-center px-4 max-w-7xl mx-auto pt-20">
         {/* Quantum Badge */}
         <motion.div
           className="mb-8"
@@ -225,7 +222,7 @@ export default function QuantumHeroSection() {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }

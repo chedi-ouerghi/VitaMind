@@ -1,9 +1,8 @@
 import FuturisticHeader from "@/components/navigation/FuturisticHeader"
 import QuantumHeroSection from "@/components/hero/QuantumHeroSection"
-import IntelligenceShowcase from "@/components/sections/IntelligenceShowcase"
+import QuantumAdvantagesSection from "@/components/sections/QuantumAdvantagesSection"
 import ProblemSolutionSection from "@/components/ProblemSolutionSection"
 import HowItWorksSection from "@/components/HowItWorksSection"
-import BenefitsSection from "@/components/BenefitsSection"
 import FeaturesSection from "@/components/FeaturesSection"
 import TechnologySection from "@/components/TechnologySection"
 import CTASection from "@/components/CTASection"
@@ -14,10 +13,9 @@ export default function Home() {
     <div className="min-h-screen bg-white text-black overflow-x-hidden">
       <FuturisticHeader />
       <QuantumHeroSection />
-      <IntelligenceShowcase />
+      <QuantumAdvantagesSection />
       <ProblemSolutionSection />
       <HowItWorksSection />
-      <BenefitsSection />
       <FeaturesSection />
       <TechnologySection />
       <CTASection />
