@@ -27,7 +27,7 @@ export default function Header() {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-gray-900/95 backdrop-blur-md border-b border-gray-800" : "bg-transparent"
+        isScrolled ? "bg-white/95 backdrop-blur-md border-b border-violet-100 shadow-lg" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -42,14 +42,14 @@ export default function Header() {
             transition={{ duration: 0.2 }}
           >
             <div className="relative">
-              <Brain className="w-8 h-8 text-blue-400" />
+              <Brain className="w-8 h-8 text-violet-600" />
               <motion.div
-                className="absolute inset-0 bg-blue-400 rounded-full opacity-20"
+                className="absolute inset-0 bg-violet-400 rounded-full opacity-20"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
               />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
               VitaMind
             </span>
           </motion.div>
@@ -60,30 +60,30 @@ export default function Header() {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-white transition-colors duration-200 relative group"
+                className="text-gray-700 hover:text-violet-600 transition-colors duration-200 relative group"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 {item.name}
-                <motion.div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300" />
+                <motion.div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-purple-600 group-hover:w-full transition-all duration-300" />
               </motion.a>
             ))}
           </nav>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-gray-300 hover:text-white">
+            <Button variant="ghost" className="text-gray-700 hover:text-violet-600">
               Sign In
             </Button>
-            <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0">
+            <Button className="bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white border-0 shadow-lg">
               Get Started
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-300 hover:text-white"
+            className="md:hidden text-gray-700 hover:text-violet-600"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -93,7 +93,7 @@ export default function Header() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden bg-gray-800 border-t border-gray-700"
+            className="md:hidden bg-white border-t border-violet-100 shadow-lg"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -104,17 +104,17 @@ export default function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block text-gray-300 hover:text-white transition-colors duration-200"
+                  className="block text-gray-700 hover:text-violet-600 transition-colors duration-200"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
               <div className="pt-4 space-y-2">
-                <Button variant="ghost" className="w-full text-gray-300 hover:text-white">
+                <Button variant="ghost" className="w-full text-gray-700 hover:text-violet-600">
                   Sign In
                 </Button>
-                <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0">
+                <Button className="w-full bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white border-0">
                   Get Started
                 </Button>
               </div>

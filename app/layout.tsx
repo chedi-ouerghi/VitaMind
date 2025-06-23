@@ -39,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} dark`}>
-      <body className="font-poppins antialiased bg-gray-900 text-white">{children}</body>
+    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+      <body className="font-poppins antialiased bg-white text-black">{children}</body>
     </html>
   )
 }

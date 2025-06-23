@@ -3,160 +3,227 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { Cpu, Database, Shield, Zap, Globe, Code } from "lucide-react"
-
-const technologies = [
-  {
-    icon: Cpu,
-    name: "Neural Networks",
-    description: "Advanced deep learning models for pattern recognition",
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: Database,
-    name: "Big Data Analytics",
-    description: "Processing vast amounts of mental health data",
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: Shield,
-    name: "Blockchain Security",
-    description: "Immutable and secure health record management",
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    icon: Zap,
-    name: "Real-time Processing",
-    description: "Instant analysis and response capabilities",
-    color: "from-orange-500 to-red-500",
-  },
-  {
-    icon: Globe,
-    name: "Cloud Infrastructure",
-    description: "Scalable and reliable global deployment",
-    color: "from-indigo-500 to-purple-500",
-  },
-  {
-    icon: Code,
-    name: "Open Standards",
-    description: "FHIR and HL7 compliant healthcare integration",
-    color: "from-pink-500 to-rose-500",
-  },
-]
+import { Cpu, Database, Shield, Globe, ArrowDown, BarChart3, Cloud } from "lucide-react"
 
 export default function TechnologySection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-black to-gray-900" id="technology">
-      <div className="container mx-auto px-4">
+    <section ref={ref} className="py-24 bg-black text-white relative overflow-hidden" id="technology">
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fillOpacity='0.1'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v22H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20z'/%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 relative">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-6xl font-light text-white mb-6">Cutting-Edge Technology</h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Built on the latest advances in AI, machine learning, and healthcare technology to provide the most
-            sophisticated mental health support platform available.
+          <motion.div
+            className="inline-block mb-4"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={isInView ? { scale: 1, rotate: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <span className="text-4xl">🚀</span>
+          </motion.div>
+          <h2 className="text-4xl md:text-6xl font-light text-white mb-6">
+            VitaMind{" "}
+            <span className="bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
+              Architecture
+            </span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Built on cutting-edge technology stack designed for scalability, security, and real-time mental health
+            support.
           </p>
         </motion.div>
 
-        {/* Technology Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {technologies.map((tech, index) => (
-            <motion.div
-              key={index}
-              className="group relative"
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-            >
-              <div className="relative bg-gray-800/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300 h-full">
-                <motion.div
-                  className={`w-12 h-12 bg-gradient-to-br ${tech.color} rounded-xl flex items-center justify-center mb-4`}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <tech.icon className="w-6 h-6 text-white" />
-                </motion.div>
-
-                <h3 className="text-lg font-semibold text-white mb-2">{tech.name}</h3>
-                <p className="text-gray-400 text-sm">{tech.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
         {/* Architecture Diagram */}
         <motion.div
-          className="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-8 border border-gray-700"
+          className="max-w-6xl mx-auto"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 1, delay: 0.3 }}
         >
-          <h3 className="text-2xl font-semibold text-white mb-8 text-center">VitaMind Architecture</h3>
-
-          <div className="grid md:grid-cols-3 gap-8 items-center">
-            {/* User Layer */}
-            <motion.div className="text-center" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-lg">User</span>
+          {/* User Layer */}
+          <div className="text-center mb-12">
+            <motion.div
+              className="inline-flex items-center space-x-4 bg-gradient-to-r from-violet-600 to-purple-600 rounded-full px-8 py-4 shadow-2xl"
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold">👤</span>
               </div>
-              <h4 className="text-white font-semibold mb-2">User Interface</h4>
-              <p className="text-gray-400 text-sm">Mobile & Web Apps</p>
-            </motion.div>
-
-            {/* AI Layer */}
-            <motion.div className="text-center" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-lg">AI</span>
+              <div className="text-left">
+                <div className="text-white font-semibold">User Interface</div>
+                <div className="text-violet-200 text-sm">Mobile & Web Applications</div>
               </div>
-              <h4 className="text-white font-semibold mb-2">AI Engine</h4>
-              <p className="text-gray-400 text-sm">Neural Networks & ML</p>
-            </motion.div>
-
-            {/* Data Layer */}
-            <motion.div className="text-center" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-              <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-lg">Data</span>
-              </div>
-              <h4 className="text-white font-semibold mb-2">Secure Storage</h4>
-              <p className="text-gray-400 text-sm">Encrypted Database</p>
             </motion.div>
           </div>
 
-          {/* Connection Lines */}
-          <div className="hidden md:block absolute top-1/2 left-1/3 w-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-green-500 transform -translate-y-1/2"></div>
-          <div className="hidden md:block absolute top-1/2 right-1/3 w-1/3 h-0.5 bg-gradient-to-r from-green-500 to-orange-500 transform -translate-y-1/2"></div>
-        </motion.div>
+          {/* Connection Arrow */}
+          <motion.div
+            className="flex justify-center mb-8"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+          >
+            <ArrowDown className="w-8 h-8 text-violet-400" />
+          </motion.div>
 
-        {/* Technical Specs */}
-        <motion.div
-          className="mt-16 grid md:grid-cols-4 gap-6"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 1 }}
-        >
-          {[
-            { label: "Response Time", value: "<100ms", description: "Average API response" },
-            { label: "Uptime", value: "99.9%", description: "Service availability" },
-            { label: "Data Centers", value: "12", description: "Global locations" },
-            { label: "Encryption", value: "AES-256", description: "Military grade security" },
-          ].map((spec, index) => (
+          {/* API Gateway */}
+          <div className="text-center mb-12">
             <motion.div
-              key={index}
-              className="text-center p-4 bg-gray-800/30 rounded-xl border border-gray-700"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
+              className="inline-block bg-gray-900 border-2 border-violet-500 rounded-2xl p-6 shadow-2xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="text-2xl font-bold text-blue-400 mb-1">{spec.value}</div>
-              <div className="text-white font-medium mb-1">{spec.label}</div>
-              <div className="text-xs text-gray-400">{spec.description}</div>
+              <div className="flex items-center space-x-4">
+                <Globe className="w-8 h-8 text-violet-400" />
+                <div className="text-left">
+                  <div className="text-white font-semibold">API Gateway</div>
+                  <div className="text-gray-400 text-sm">Load Balancing & Rate Limiting</div>
+                </div>
+              </div>
             </motion.div>
-          ))}
+          </div>
+
+          {/* Connection Arrow */}
+          <motion.div
+            className="flex justify-center mb-8"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 0.5 }}
+          >
+            <ArrowDown className="w-8 h-8 text-violet-400" />
+          </motion.div>
+
+          {/* Core Services */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                icon: Cpu,
+                title: "AI Engine",
+                subtitle: "Neural Networks & ML",
+                description: "Advanced deep learning models for pattern recognition and emotional analysis",
+                color: "from-violet-500 to-purple-500",
+              },
+              {
+                icon: BarChart3,
+                title: "Analytics Engine",
+                subtitle: "Real-time Processing",
+                description: "Instant mood analysis and behavioral pattern detection",
+                color: "from-purple-500 to-pink-500",
+              },
+              {
+                icon: Shield,
+                title: "Security Layer",
+                subtitle: "HIPAA Compliant",
+                description: "End-to-end encryption and secure data handling",
+                color: "from-indigo-500 to-violet-500",
+              },
+            ].map((service, index) => (
+              <motion.div
+                key={index}
+                className="bg-gray-900 border border-gray-700 rounded-2xl p-6 hover:border-violet-500 transition-all duration-300"
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+              >
+                <div
+                  className={`w-12 h-12 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-4`}
+                >
+                  <service.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-white font-semibold mb-1">{service.title}</h3>
+                <p className="text-violet-400 text-sm mb-3">{service.subtitle}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{service.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Connection Arrow */}
+          <motion.div
+            className="flex justify-center mb-8"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 1 }}
+          >
+            <ArrowDown className="w-8 h-8 text-violet-400" />
+          </motion.div>
+
+          {/* Data Layer */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                icon: Database,
+                title: "Secure Database",
+                subtitle: "Encrypted Storage",
+                description: "Patient data stored with military-grade encryption",
+                color: "from-violet-600 to-purple-600",
+              },
+              {
+                icon: Cloud,
+                title: "Cloud Infrastructure",
+                subtitle: "Global CDN",
+                description: "Distributed across 12 data centers worldwide",
+                color: "from-purple-600 to-pink-600",
+              },
+            ].map((layer, index) => (
+              <motion.div
+                key={index}
+                className="bg-gray-900 border border-gray-700 rounded-2xl p-6 hover:border-violet-500 transition-all duration-300"
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div
+                  className={`w-12 h-12 bg-gradient-to-br ${layer.color} rounded-xl flex items-center justify-center mb-4`}
+                >
+                  <layer.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-white font-semibold mb-1">{layer.title}</h3>
+                <p className="text-violet-400 text-sm mb-3">{layer.subtitle}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{layer.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Performance Metrics */}
+          <motion.div
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, delay: 1.2 }}
+          >
+            {[
+              { label: "Response Time", value: "<50ms", icon: "⚡" },
+              { label: "Uptime", value: "99.99%", icon: "🔄" },
+              { label: "Data Centers", value: "12", icon: "🌍" },
+              { label: "Encryption", value: "AES-256", icon: "🔒" },
+            ].map((metric, index) => (
+              <motion.div
+                key={index}
+                className="text-center p-4 bg-gray-900/50 rounded-xl border border-gray-700 hover:border-violet-500 transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="text-2xl mb-2">{metric.icon}</div>
+                <div className="text-2xl font-bold text-violet-400 mb-1">{metric.value}</div>
+                <div className="text-sm text-gray-400">{metric.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -8,39 +8,45 @@ import { Clock, Zap, TrendingDown, Users, Brain, Heart } from "lucide-react"
 const benefits = [
   {
     icon: Clock,
-    title: "24/7 Availability",
-    description: "Always there when you need support, day or night",
-    color: "from-blue-500 to-cyan-500",
+    title: "Always Available",
+    description: "24/7 support whenever you need it most",
+    gradient: "from-violet-500 to-purple-500",
+    bgGradient: "from-violet-50 to-purple-50",
   },
   {
     icon: Zap,
     title: "Instant Response",
-    description: "Immediate support and guidance in critical moments",
-    color: "from-purple-500 to-pink-500",
+    description: "Immediate support in critical moments",
+    gradient: "from-purple-500 to-pink-500",
+    bgGradient: "from-purple-50 to-pink-50",
   },
   {
     icon: TrendingDown,
-    title: "Reduced Episodes",
-    description: "Proactive intervention helps prevent crisis situations",
-    color: "from-green-500 to-emerald-500",
+    title: "Crisis Prevention",
+    description: "Proactive intervention to prevent episodes",
+    gradient: "from-indigo-500 to-violet-500",
+    bgGradient: "from-indigo-50 to-violet-50",
   },
   {
     icon: Brain,
     title: "Personalized AI",
-    description: "Learns your unique patterns and adapts to your needs",
-    color: "from-orange-500 to-red-500",
+    description: "Learns your unique patterns and needs",
+    gradient: "from-violet-600 to-purple-600",
+    bgGradient: "from-violet-50 to-purple-50",
   },
   {
     icon: Heart,
     title: "Emotional Intelligence",
-    description: "Understands context and responds with empathy",
-    color: "from-pink-500 to-rose-500",
+    description: "Understands context with empathy",
+    gradient: "from-pink-500 to-rose-500",
+    bgGradient: "from-pink-50 to-rose-50",
   },
   {
     icon: Users,
     title: "Care Network",
-    description: "Connects you with healthcare providers and loved ones",
-    color: "from-indigo-500 to-purple-500",
+    description: "Connects you with healthcare providers",
+    gradient: "from-purple-600 to-indigo-600",
+    bgGradient: "from-purple-50 to-indigo-50",
   },
 ]
 
@@ -49,89 +55,126 @@ export default function BenefitsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-gray-900 to-black">
-      <div className="container mx-auto px-4">
+    <section ref={ref} className="py-24 bg-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%238B5CF6' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 relative">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-6xl font-light text-white mb-6">Why Choose VitaMind?</h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Experience the next generation of mental health support with AI technology designed specifically for bipolar
-            disorder management.
+          <motion.div
+            className="inline-block mb-4"
+            initial={{ scale: 0 }}
+            animate={isInView ? { scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <span className="text-4xl">🧠</span>
+          </motion.div>
+          <h2 className="text-4xl md:text-6xl font-light text-black mb-6">
+            Why Choose{" "}
+            <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+              VitaMind
+            </span>
+            ?
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Experience the next generation of mental health support with AI technology designed specifically for your
+            wellbeing.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              className="group relative"
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-            >
-              <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-gray-600 transition-all duration-300 h-full overflow-hidden group-hover:scale-105">
-                {/* Gradient Background */}
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-                  initial={false}
-                />
-
-                {/* Icon */}
-                <motion.div
-                  className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mb-6 relative`}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
+        {/* Hexagonal Grid Layout */}
+        <div className="relative max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                className="group relative"
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div
+                  className={`relative bg-gradient-to-br ${benefit.bgGradient} rounded-3xl p-8 border border-violet-100 hover:border-violet-200 transition-all duration-500 h-full group-hover:shadow-2xl group-hover:shadow-violet-500/10`}
                 >
-                  <benefit.icon className="w-8 h-8 text-white" />
+                  {/* Floating Icon */}
                   <motion.div
-                    className="absolute inset-0 bg-white/20 rounded-2xl"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                    className={`w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                    whileHover={{
+                      scale: 1.1,
+                      rotate: [0, -5, 5, 0],
+                      y: [-5, -10, -5],
+                    }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <benefit.icon className="w-8 h-8 text-white" />
+                  </motion.div>
+
+                  <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-violet-700 transition-colors">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors leading-relaxed">
+                    {benefit.description}
+                  </p>
+
+                  {/* Decorative Elements */}
+                  <motion.div
+                    className="absolute top-4 right-4 w-8 h-8 rounded-full bg-violet-200/30"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.3, 0.6, 0.3],
+                    }}
+                    transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, delay: index * 0.5 }}
                   />
-                </motion.div>
 
-                <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-blue-300 transition-colors">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors">{benefit.description}</p>
-
-                {/* Hover Effect */}
-                <motion.div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-              </div>
-            </motion.div>
-          ))}
+                  {/* Hover Effect Line */}
+                  <motion.div
+                    className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${benefit.gradient} rounded-b-3xl`}
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ originX: 0 }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        {/* Stats Section */}
+        {/* Bottom Stats */}
         <motion.div
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="mt-20 text-center"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: 0.8 }}
         >
-          {[
-            { number: "95%", label: "Accuracy Rate", description: "In mood pattern detection" },
-            { number: "24/7", label: "Support", description: "Always available assistance" },
-            { number: "60%", label: "Reduction", description: "In crisis episodes" },
-            { number: "10k+", label: "Users", description: "Trust VitaMind daily" },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              className="text-center group"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
-                {stat.number}
-              </div>
-              <div className="text-white font-medium mb-1">{stat.label}</div>
-              <div className="text-sm text-gray-400">{stat.description}</div>
-            </motion.div>
-          ))}
+          <div className="inline-flex items-center space-x-8 bg-gradient-to-r from-violet-50 to-purple-50 rounded-full px-8 py-4 border border-violet-100">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-violet-600">98%</div>
+              <div className="text-sm text-gray-600">Accuracy</div>
+            </div>
+            <div className="w-px h-8 bg-violet-200"></div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-purple-600">24/7</div>
+              <div className="text-sm text-gray-600">Available</div>
+            </div>
+            <div className="w-px h-8 bg-violet-200"></div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-violet-600">50k+</div>
+              <div className="text-sm text-gray-600">Users</div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

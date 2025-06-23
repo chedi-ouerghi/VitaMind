@@ -25,17 +25,17 @@ export default function ParticleBackground() {
       color: string
     }> = []
 
-    const colors = ["#3B82F6", "#8B5CF6", "#06B6D4", "#10B981"]
+    const colors = ["#8B5CF6", "#A855F7", "#C084FC", "#DDD6FE"]
 
     // Create particles
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 60; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
         size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
+        opacity: Math.random() * 0.4 + 0.1,
         color: colors[Math.floor(Math.random() * colors.length)],
       })
     }
@@ -68,11 +68,11 @@ export default function ParticleBackground() {
           const dy = particle.y - otherParticle.y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 100) {
+          if (distance < 120) {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - distance / 100)})`
+            ctx.strokeStyle = `rgba(139, 92, 246, ${0.1 * (1 - distance / 120)})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }
@@ -93,5 +93,5 @@ export default function ParticleBackground() {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
+  return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-60" />
 }
