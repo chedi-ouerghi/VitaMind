@@ -15,22 +15,22 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "VitaminD - Votre Compagnon AI pour le Trouble Bipolaire",
+  title: "VitaMind - Your AI Companion for Bipolar Disorder",
   description:
-    "Un agent intelligent qui parle avec vous pour gérer votre quotidien et offrir un soutien personnalisé pour le trouble bipolaire.",
-  keywords: "IA, intelligence artificielle, trouble bipolaire, santé mentale, soutien, compagnon virtuel",
-  authors: [{ name: "VitaminD Team" }],
+    "An intelligent agent that talks with you to manage your daily life and provide personalized support for bipolar disorder.",
+  keywords: "AI, artificial intelligence, bipolar disorder, mental health, support, virtual companion",
+  authors: [{ name: "VitaMind Team" }],
   openGraph: {
-    title: "VitaminD - Votre Compagnon AI pour le Trouble Bipolaire",
-    description: "Un agent intelligent qui parle avec vous pour gérer votre quotidien.",
+    title: "VitaMind - Your AI Companion for Bipolar Disorder",
+    description: "An intelligent agent that talks with you to manage your daily life.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VitaminD - Votre Compagnon AI",
-    description: "Un soutien intelligent pour le trouble bipolaire.",
+    title: "VitaMind - Your AI Companion",
+    description: "Intelligent support for bipolar disorder.",
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -39,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="font-poppins antialiased">{children}</body>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} dark`}>
+      <body className="font-poppins antialiased bg-gray-900 text-white">{children}</body>
     </html>
   )
 }
