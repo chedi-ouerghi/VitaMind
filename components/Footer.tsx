@@ -5,12 +5,7 @@ import { Brain, Mail, Phone, MapPin, Twitter, Linkedin, Github, Heart, Shield, A
 
 export default function Footer() {
   const footerLinks = {
-    Product: [
-      { name: "Features", href: "#features" },
-      { name: "How it Works", href: "#how-it-works" },
-      { name: "Technology", href: "#technology" },
-      { name: "Pricing", href: "#pricing" },
-    ],
+    
     Company: [
       { name: "About Us", href: "#about" },
       { name: "Careers", href: "#careers" },

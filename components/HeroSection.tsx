@@ -8,7 +8,7 @@ import ParticleBackground from "./ParticleBackground"
 
 export default function HeroSection() {
   const [displayText, setDisplayText] = useState("")
-  const fullText = "VitaMind: Your AI Companion for Bipolar Disorder"
+  const fullText = "VitaMind: A chat-based assistant in the app (for higher-level interaction)"
 
   useEffect(() => {
     let index = 0
@@ -25,7 +25,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-violet-50 to-purple-50 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-violet-50 to-purple-50 overflow-hidden py-8">
       <ParticleBackground />
 
       {/* Floating geometric shapes */}
@@ -123,31 +123,32 @@ export default function HeroSection() {
           </Button>
         </motion.div>
 
-        <motion.div
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 3 }}
-        >
-          {[
-            { number: "24/7", label: "AI Support", icon: "🤖" },
-            { number: "98%", label: "User Satisfaction", icon: "💜" },
-            { number: "50k+", label: "Lives Improved", icon: "🌟" },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-violet-100 shadow-lg"
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="text-2xl mb-2">{stat.icon}</div>
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
-                {stat.number}
-              </div>
-              <div className="text-gray-600 mt-2">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
+       <motion.div
+  className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 max-w-6xl mx-auto"
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 2 }}
+>
+  {[
+    { number: "Ongoing", label: "AI Support", icon: "🤖" },
+    { number: "Improving", label: "User Satisfaction", icon: "💜" },
+    { number: "Growing Daily", label: "Lives Impacted", icon: "🌟" },
+  ].map((stat, index) => (
+    <motion.div
+      key={index}
+      className="flex flex-col items-center justify-center text-center p-6 bg-white/70 backdrop-blur-md rounded-3xl border border-violet-200 shadow-xl transition-transform"
+      whileHover={{ scale: 1.05, y: -8 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="text-4xl mb-3">{stat.icon}</div>
+      <div className="text-m md:text-xl font-extrabold bg-gradient-to-r from-purple-700 to-violet-500 bg-clip-text text-transparent tracking-tight">
+        {stat.number}
+      </div>
+      <div className="mt-2 text-gray-700 text-lg font-medium">{stat.label}</div>
+    </motion.div>
+  ))}
+</motion.div>
+
       </div>
     </section>
   )
