@@ -3,41 +3,44 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { MessageCircle, Brain, Shield, ArrowDown } from "lucide-react"
+import { BrainCircuit, HeartPulse, ArrowDown, Shield } from "lucide-react"
 
 export default function HowItWorksSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
-  const steps = [
-    {
-      icon: MessageCircle,
-      title: "Intelligent Conversations",
-      description: "Advanced NLP understands emotional context and responds with empathy",
-      details:
-        "Our AI processes natural language with deep emotional intelligence, recognizing subtle cues in your communication patterns.",
-      color: "#518591",
-      position: "left",
-    },
-    {
-      icon: Brain,
-      title: "Pattern Recognition",
-      description: "Machine learning identifies behavioral patterns and emotional triggers",
-      details:
-        "Sophisticated algorithms analyze your data to detect early warning signs and predict potential mental health episodes.",
-      color: "#e3b01c",
-      position: "center",
-    },
-    {
-      icon: Shield,
-      title: "Proactive Support",
-      description: "Real-time interventions and personalized coping strategies",
-      details:
-        "Immediate support when you need it most, with personalized recommendations based on your unique profile.",
-      color: "#518591",
-      position: "right",
-    },
-  ]
+const steps = [
+  {
+    icon: BrainCircuit,
+    title: "Step 1: Smart Diagnosis",
+    description:
+      "VitaMind collects real-time health data through a smart watch. Using AI-powered analysis, it identifies potential mental health conditions.",
+    details:
+      "It can detect signs of Bipolar Disorder, Schizophrenia, or ADHD based on physiological and behavioral metrics.",
+    color: "#518591",
+    position: "left",
+  },
+  {
+    icon: HeartPulse,
+    title: "Step 2: AI-Driven Therapy",
+    description:
+      "Once diagnosed, a personalized treatment journey begins, powered by an intelligent AI assistant.",
+    details:
+      "It predicts behavioral patterns and engages users with calming conversations, color and music therapy, and relaxation tools. If needed, it alerts a medical professional for human intervention.",
+    color: "#e3b01c",
+    position: "right",
+  },
+  {
+    icon: Shield,
+    title: "Proactive Support",
+    description: "Real-time interventions and personalized coping strategies",
+    details:
+      "Immediate support when you need it most, with personalized recommendations based on your unique profile and wellness data.",
+    color: "#518591",
+    position: "center",
+  },
+]
+
 
   const metrics = [
     { label: "Response Time", value: "<2s", icon: "⚡", color: "#518591" },
@@ -60,8 +63,8 @@ export default function HowItWorksSection() {
         <div
           className="absolute inset-0"
           style={{
-        background: "linear-gradient(135deg, #ffffff 70%, #518591 100%)",
-      }}
+            background: "linear-gradient(135deg, #ffffff 70%, #518591 100%)",
+          }}
         />
       </div>
 
@@ -80,7 +83,7 @@ export default function HowItWorksSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             whileHover={{ scale: 1.1, rotate: 5 }}
           >
-            <Brain className="w-10 h-10 text-white" />
+            <BrainCircuit className="w-10 h-10 text-white" />
           </motion.div>
 
           <h2 className="text-5xl md:text-7xl font-light text-gray-900 mb-8">
@@ -89,30 +92,23 @@ export default function HowItWorksSection() {
             Works
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Our advanced AI system combines cutting-edge technology with deep understanding of mental health to provide
-            personalized, intelligent support through a sophisticated three-step process.
+            Discover how VitaMind leverages smart diagnostics and intelligent therapy to support mental well-being with AI-driven precision.
           </p>
         </motion.div>
 
-        {/* Steps Flow */}
+        {/* Steps */}
         <div className="max-w-6xl mx-auto mb-20">
           {steps.map((step, index) => (
             <div key={index} className="relative mb-16 last:mb-0">
-              {/* Step Card */}
               <motion.div
-                className={`flex flex-col lg:flex-row items-center gap-12 ${
-                  step.position === "right" ? "lg:flex-row-reverse" : ""
-                } ${step.position === "center" ? "justify-center" : ""}`}
+                className={`flex flex-col lg:flex-row items-center gap-12 ${step.position === "right" ? "lg:flex-row-reverse" : ""}`}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
               >
-                {/* Content */}
-                <div className={`flex-1 ${step.position === "center" ? "text-center max-w-2xl" : ""}`}>
+                <div className="flex-1">
                   <motion.div
-                    className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 shadow-lg ${
-                      step.position === "center" ? "mx-auto" : ""
-                    }`}
+                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 shadow-lg"
                     style={{
                       background: `linear-gradient(135deg, ${step.color}, ${step.color}80)`,
                     }}
@@ -127,55 +123,50 @@ export default function HowItWorksSection() {
                   <p className="text-gray-500 leading-relaxed">{step.details}</p>
                 </div>
 
-                {/* Visual Element */}
-                {step.position !== "center" && (
-                  <div className="flex-1 flex justify-center">
+                <div className="flex-1 flex justify-center">
+                  <motion.div
+                    className="relative w-80 h-80 bg-gradient-to-br from-white to-[#518591]/5 rounded-3xl border border-[#518591]/10 shadow-2xl flex items-center justify-center"
+                    whileHover={{ scale: 1.05, rotate: 2 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <motion.div
-                      className="relative w-80 h-80 bg-gradient-to-br from-white to-[#518591]/5 rounded-3xl border border-[#518591]/10 shadow-2xl flex items-center justify-center"
-                      whileHover={{ scale: 1.05, rotate: 2 }}
-                      transition={{ duration: 0.3 }}
+                      className="w-32 h-32 rounded-2xl flex items-center justify-center shadow-xl"
+                      style={{
+                        background: `linear-gradient(135deg, ${step.color}, ${step.color}60)`,
+                      }}
+                      animate={{
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 5, 0],
+                      }}
+                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
                     >
+                      <step.icon className="w-16 h-16 text-white" />
+                    </motion.div>
+
+                    {[...Array(3)].map((_, i) => (
                       <motion.div
-                        className="w-32 h-32 rounded-2xl flex items-center justify-center shadow-xl"
+                        key={i}
+                        className="absolute w-4 h-4 rounded-full"
                         style={{
-                          background: `linear-gradient(135deg, ${step.color}, ${step.color}60)`,
+                          background: i % 2 === 0 ? step.color : "#e3b01c",
+                          top: `${20 + i * 25}%`,
+                          right: `${10 + i * 15}%`,
                         }}
                         animate={{
-                          scale: [1, 1.1, 1],
-                          rotate: [0, 5, 0],
+                          y: [0, -20, 0],
+                          opacity: [0.3, 0.8, 0.3],
                         }}
-                        transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-                      >
-                        <step.icon className="w-16 h-16 text-white" />
-                      </motion.div>
-
-                      {/* Floating Elements */}
-                      {[...Array(3)].map((_, i) => (
-                        <motion.div
-                          key={i}
-                          className="absolute w-4 h-4 rounded-full"
-                          style={{
-                            background: i % 2 === 0 ? step.color : "#e3b01c",
-                            top: `${20 + i * 25}%`,
-                            right: `${10 + i * 15}%`,
-                          }}
-                          animate={{
-                            y: [0, -20, 0],
-                            opacity: [0.3, 0.8, 0.3],
-                          }}
-                          transition={{
-                            duration: 3,
-                            repeat: Number.POSITIVE_INFINITY,
-                            delay: i * 0.5,
-                          }}
-                        />
-                      ))}
-                    </motion.div>
-                  </div>
-                )}
+                        transition={{
+                          duration: 3,
+                          repeat: Number.POSITIVE_INFINITY,
+                          delay: i * 0.5,
+                        }}
+                      />
+                    ))}
+                  </motion.div>
+                </div>
               </motion.div>
 
-              {/* Connection Arrow */}
               {index < steps.length - 1 && (
                 <motion.div
                   className="flex justify-center my-12"
@@ -197,7 +188,7 @@ export default function HowItWorksSection() {
           ))}
         </div>
 
-        {/* Performance Metrics */}
+        {/* Metrics */}
         <motion.div
           className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 50 }}
@@ -218,8 +209,6 @@ export default function HowItWorksSection() {
                 {metric.value}
               </div>
               <div className="text-sm text-gray-600 font-medium">{metric.label}</div>
-
-              {/* Hover Effect */}
               <motion.div className="absolute inset-0 bg-gradient-to-br from-[#518591]/5 to-[#e3b01c]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
             </motion.div>
           ))}

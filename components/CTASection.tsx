@@ -26,28 +26,33 @@ export default function CTASection() {
   return (
     <section
       ref={ref}
-      className="relative py-32 bg-white overflow-hidden min-h-[80vh] flex items-center"
+      className="relative py-32 overflow-hidden min-h-[80vh] flex items-center"
       style={{
-        background: "linear-gradient(-135deg, #ffffff 70%, #518591 100%)"
+        background: "linear-gradient(120deg, #f7fafc 60%, #e3b01c10 100%)"
       }}
     >
-      {/* Futuristic glassmorphism background */}
+      {/* Modern colorful background overlays */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Soft white overlay for "white but colorful" look */}
+        <div className="absolute inset-0 bg-white/80" />
+        {/* Subtle color gradients */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-[32rem] h-[32rem] bg-[#518591]/20 rounded-full blur-[120px]"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.5, 0.2] }}
-          transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY }}
+          className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-[#518591]/20 via-transparent to-transparent rounded-full blur-[120px]"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.18, 0.28, 0.18] }}
+          transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[36rem] h-[36rem] bg-[#e3b01c]/20 rounded-full blur-[140px]"
-          animate={{ scale: [1.1, 1, 1.1], opacity: [0.15, 0.4, 0.15] }}
+          className="absolute bottom-0 right-0 w-2/3 h-2/3 bg-gradient-to-tl from-[#e3b01c]/20 via-transparent to-transparent rounded-full blur-[140px]"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.12, 0.22, 0.12] }}
           transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY }}
         />
         <motion.div
           className="absolute top-1/2 left-1/2 w-[18rem] h-[18rem] bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.25, 0.1] }}
+          animate={{ scale: [1, 1.15, 1], opacity: [0.08, 0.18, 0.08] }}
           transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY }}
         />
+        {/* Subtle dark overlay for depth */}
+        <div className="absolute inset-0 bg-neutral-900/5" />
       </div>
 
       {/* Floating particles */}

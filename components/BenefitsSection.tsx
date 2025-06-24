@@ -57,19 +57,42 @@ export default function BenefitsSection() {
   return (
     <section
       ref={ref}
-      className="py-24 bg-white relative overflow-hidden"
+      className="py-24 relative overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #ffffff 70%, #518591 100%)",
+        background: "linear-gradient(120deg, #f7fafc 60%, #e3b01c10 100%)"
       }}
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%238B5CF6' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
+      {/* Modern colorful background overlays */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Soft white overlay for "white but colorful" look */}
+        <div className="absolute inset-0 bg-white/80" />
+        {/* Subtle color gradients */}
+        <motion.div
+          className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-[#518591]/20 via-transparent to-transparent rounded-full blur-[120px]"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.18, 0.28, 0.18] }}
+          transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY }}
         />
+        <motion.div
+          className="absolute bottom-0 right-0 w-2/3 h-2/3 bg-gradient-to-tl from-[#e3b01c]/20 via-transparent to-transparent rounded-full blur-[140px]"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.12, 0.22, 0.12] }}
+          transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-[18rem] h-[18rem] bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.08, 0.18, 0.08] }}
+          transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY }}
+        />
+        {/* Subtle dark overlay for depth */}
+        <div className="absolute inset-0 bg-neutral-900/5" />
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%238B5CF6' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          />
+        </div>
       </div>
 
       <div className="container mx-auto px-4 relative">

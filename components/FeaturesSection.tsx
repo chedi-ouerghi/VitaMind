@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
-import { MessageSquare, BarChart3, Shield, Smartphone, Cloud, Lock } from "lucide-react"
+import { MessageSquare, BarChart3, Shield, Lock, Watch } from "lucide-react"
 
 const features = [
   {
@@ -28,18 +28,12 @@ const features = [
     color: "indigo",
   },
   {
-    icon: Smartphone,
-    title: "Mobile First",
-    description: "Seamless experience across all devices with offline capabilities",
-    details: "Native mobile apps with offline support ensure constant access to support.",
-    color: "pink",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud Sync",
-    description: "Secure cloud synchronization keeps your data safe",
-    details: "End-to-end encrypted cloud storage ensures data protection and synchronization.",
-    color: "violet",
+    icon: Watch,
+    title: "Smartwatch Integration",
+    description: "Real-time mental health insights directly from your wrist",
+    details: "VitaMind leverages smartwatch sensors to continuously monitor your health data, offering seamless AI-driven diagnostics and support without needing your phone.",
+    color: "#c084fc", // Un violet doux et moderne (remplace "pink")
+    position: "left", // ou "center" selon ta structure
   },
   {
     icon: Lock,
@@ -86,7 +80,7 @@ export default function FeaturesSection() {
             </span>
           </h2>
           <p className="text-xl text-[#518591]/80 max-w-3xl mx-auto">
-            Cutting-edge technology meets deep understanding of mental health to deliver transformative experiences.
+            Where technology meets deep understanding of mental health to deliver transformative experiences.
           </p>
         </motion.div>
 

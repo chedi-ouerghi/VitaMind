@@ -6,19 +6,17 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Play, Sparkles, Brain, Heart, Shield } from "lucide-react"
 
 export default function HeroSection() {
+  // Texte animé à afficher
+  const fullText = "VitaMind Tracking Minds. Transforming Lives :"
   const [displayText, setDisplayText] = useState("")
-  const fullText = "Transform Mental Health with AI-Powered Intelligence"
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   })
 
-  // Optimized scroll effects with will-change
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
-  // Optimized text animation with requestAnimationFrame
   useEffect(() => {
     let index = 0
     let animationId: number
@@ -30,7 +28,7 @@ export default function HeroSection() {
         fullText.length,
         Math.floor(elapsed / 80)
       )
-      
+
       if (charactersToShow > index) {
         setDisplayText(fullText.slice(0, charactersToShow))
         index = charactersToShow
@@ -44,29 +42,21 @@ export default function HeroSection() {
     animationId = requestAnimationFrame(animateText)
 
     return () => cancelAnimationFrame(animationId)
-  }, [fullText])
+  }, [])
 
-  // Memoized floating elements configuration
   const floatingElements = [
     { icon: Brain, color: "#518591", delay: 0, size: "w-16 h-16 md:w-20 md:h-20" },
     { icon: Heart, color: "#e3b01c", delay: 0.5, size: "w-14 h-14 md:w-18 md:h-18" },
     { icon: Shield, color: "#518591", delay: 1, size: "w-18 h-18 md:w-22 md:h-22" },
   ]
 
-  // Stats cards data
-  const stats = [
-    { number: "24/7", label: "AI Support", icon: "🤖", gradient: "from-[#518591] to-[#518591]/70" },
-    { number: "98%", label: "Accuracy Rate", icon: "🎯", gradient: "from-[#e3b01c] to-[#e3b01c]/70" },
-    { number: "50k+", label: "Lives Transformed", icon: "✨", gradient: "from-[#518591] to-[#e3b01c]" },
-  ]
-
   return (
     <section
       ref={ref}
-className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-[#518591]/5 to-[#e3b01c]/5 overflow-hidden will-change-transform"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-[#518591]/5 to-[#e3b01c]/5 overflow-hidden will-change-transform"
       style={{ willChange: 'transform' }}
     >
-      {/* Optimized Background Grid */}
+      {/* Background Grid */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div
           className="absolute inset-0"
@@ -78,11 +68,8 @@ className="relative min-h-screen flex items-center justify-center bg-gradient-to
         />
       </div>
 
-      {/* Optimized Floating Elements */}
-      <motion.div 
-        style={{ y, opacity }} 
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-      >
+      {/* Floating Icons */}
+      <motion.div style={{ y }} className="absolute inset-0 overflow-hidden pointer-events-none">
         {floatingElements.map((element, index) => (
           <motion.div
             key={index}
@@ -107,7 +94,7 @@ className="relative min-h-screen flex items-center justify-center bg-gradient-to
             }}
           >
             <div
-              className={`w-full h-full rounded-2xl flex items-center justify-center shadow-lg backdrop-blur-sm`}
+              className="w-full h-full rounded-2xl flex items-center justify-center shadow-lg backdrop-blur-sm"
               style={{
                 background: `linear-gradient(135deg, ${element.color}20, ${element.color}10)`,
                 border: `1px solid ${element.color}30`,
@@ -120,10 +107,7 @@ className="relative min-h-screen flex items-center justify-center bg-gradient-to
       </motion.div>
 
       {/* Main Content */}
-      <motion.div 
-        style={{ y, opacity }} 
-        className="relative z-10 text-center px-4 max-w-7xl mx-auto pt-20 will-change-transform"
-      >
+      <motion.div style={{ y }} className="relative z-10 text-center px-4 max-w-7xl mx-auto pt-20 will-change-transform">
         {/* Badge */}
         <motion.div
           className="mb-8"
@@ -133,7 +117,7 @@ className="relative min-h-screen flex items-center justify-center bg-gradient-to
         >
           <span className="inline-flex items-center px-6 py-3 bg-white/80 bg-gradient-to-r from-[#518591]/10 to-[#e3b01c]/10 border border-[#518591]/20 rounded-full text-[#518591] font-semibold backdrop-blur-sm shadow-lg">
             <Sparkles className="w-5 h-5 mr-2 text-[#e3b01c]" />
-            Next-Generation Mental Health AI
+            Mental Health with AI-Powered Intelligence
             <motion.div
               className="ml-2 w-2 h-2 bg-[#e3b01c] rounded-full"
               animate={{ scale: [1, 1.5, 1] }}
@@ -143,7 +127,7 @@ className="relative min-h-screen flex items-center justify-center bg-gradient-to
           </span>
         </motion.div>
 
-        {/* Main Title - Optimized for performance */}
+        {/* Title */}
         <motion.h1
           className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-gray-900 mb-8 leading-tight"
           initial={{ opacity: 0 }}
@@ -170,11 +154,10 @@ className="relative min-h-screen flex items-center justify-center bg-gradient-to
           transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
           style={{ willChange: 'transform, opacity' }}
         >
-          Empowering individuals with intelligent, compassionate AI that understands emotional patterns and provides
-          <span className="text-[#518591] font-semibold"> real-time support</span> for mental wellness.
+          Discover a new era of mental health support powered by artificial intelligence. Our chat-based assistant is with you every step of the way, providing personalized advice, attentive listening, and tailored strategies to meet your needs.
         </motion.p>
 
-        {/* CTA Buttons - Optimized hover effects */}
+        {/* CTA Buttons */}
         <motion.div
           className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -182,18 +165,13 @@ className="relative min-h-screen flex items-center justify-center bg-gradient-to
           transition={{ duration: 0.6, delay: 1.8, ease: "easeOut" }}
           style={{ willChange: 'transform, opacity' }}
         >
-          <motion.div 
-            whileHover={{ scale: 1.05 }} 
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="relative"
-          >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.2, ease: "easeOut" }}>
             <Button
               size="lg"
               className="relative overflow-hidden bg-gradient-to-r from-[#518591] to-[#518591]/90 hover:from-[#518591] hover:to-[#518591]/80 text-white px-8 py-6 text-lg rounded-2xl shadow-xl hover:shadow-[#518591]/30 transition-all duration-300 group font-semibold border-0"
             >
               <span className="relative z-10 flex items-center">
-                Start Your Journey
+                Begin Your Chat Experience
                 <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </span>
               <motion.div 
@@ -205,11 +183,7 @@ className="relative min-h-screen flex items-center justify-center bg-gradient-to
             </Button>
           </motion.div>
 
-          <motion.div 
-            whileHover={{ scale: 1.05 }} 
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-          >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.2, ease: "easeOut" }}>
             <Button
               variant="outline"
               size="lg"
@@ -217,7 +191,7 @@ className="relative min-h-screen flex items-center justify-center bg-gradient-to
             >
               <span className="relative z-10 flex items-center">
                 <Play className="mr-3 w-5 h-5 group-hover:scale-110 transition-transform duration-200 text-[#e3b01c]" />
-                Watch Demo
+                Explore Features
               </span>
               <motion.div 
                 className="absolute inset-0 bg-[#e3b01c]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -225,47 +199,9 @@ className="relative min-h-screen flex items-center justify-center bg-gradient-to
             </Button>
           </motion.div>
         </motion.div>
-
-        {/* Stats Cards - Optimized layout and animations */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 2.2, staggerChildren: 0.1 }}
-          style={{ willChange: 'transform, opacity' }}
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              className="relative group"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 2.4 + index * 0.15 }}
-              whileHover={{ scale: 1.03, y: -5 }}
-              style={{ willChange: 'transform, opacity' }}
-            >
-              <div className="bg-white/90 backdrop-blur-md rounded-3xl p-6 border border-[#518591]/10 shadow-lg hover:shadow-xl hover:shadow-[#518591]/10 transition-all duration-300 h-full">
-                <div className="text-4xl mb-4">{stat.icon}</div>
-                <div
-                  className={`text-3xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}
-                >
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 font-medium text-lg">{stat.label}</div>
-                
-                {/* Subtle hover effect */}
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-br from-[#518591]/5 to-[#e3b01c]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ scale: 0.9 }}
-                  whileHover={{ scale: 1 }}
-                />
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </motion.div>
 
-      {/* Scroll Indicator - Optimized animation */}
+      {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
         animate={{ y: [0, 10, 0] }}

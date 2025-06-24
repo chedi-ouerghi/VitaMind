@@ -4,7 +4,7 @@ import ProblemSolutionSection from "@/components/ProblemSolutionSection"
 import HowItWorksSection from "@/components/HowItWorksSection"
 import BenefitsSection from "@/components/BenefitsSection"
 import FeaturesSection from "@/components/FeaturesSection"
-import TechnologySection from "@/components/TechnologySection"
+import TeamSection from "@/components/TeamSection"
 import CTASection from "@/components/CTASection"
 import Footer from "@/components/Footer"
 
@@ -17,7 +17,7 @@ export default function Home() {
       <HowItWorksSection />
       <BenefitsSection />
       <FeaturesSection />
-      <TechnologySection />
+      <TeamSection />
       <CTASection />
       <Footer />
     </div>

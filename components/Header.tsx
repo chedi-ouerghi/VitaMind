@@ -3,7 +3,8 @@
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Brain, Sparkles } from "lucide-react"
+import { Menu, X } from "lucide-react"
+import Image from "next/image"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -38,40 +39,22 @@ export default function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.div
-            className="flex items-center space-x-3"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="relative">
-              <motion.div
-                className="w-12 h-12 bg-gradient-to-br from-[#518591] to-[#e3b01c] rounded-2xl flex items-center justify-center shadow-lg"
-                animate={{
-                  boxShadow: [
-                    "0 0 20px rgba(81, 133, 145, 0.3)",
-                    "0 0 30px rgba(227, 176, 28, 0.4)",
-                    "0 0 20px rgba(81, 133, 145, 0.3)",
-                  ],
-                }}
-                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-              >
-                <Brain className="w-7 h-7 text-white" />
-              </motion.div>
-              <motion.div
-                className="absolute -top-1 -right-1 w-4 h-4 bg-[#e3b01c] rounded-full"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-              >
-                <Sparkles className="w-3 h-3 text-white m-0.5" />
-              </motion.div>
-            </div>
-            <div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-[#518591] to-[#e3b01c] bg-clip-text text-transparent">
-                VitaMind
-              </span>
-              <div className="text-xs text-[#518591]/70 font-medium tracking-wider">AI MENTAL HEALTH</div>
-            </div>
-          </motion.div>
+       <motion.div
+  className="relative w-20 h-20"
+  whileHover={{ scale: 1.05 }}
+  transition={{ duration: 0.8 }}
+  initial={{ opacity: 0, y: -10 }}
+  animate={{ opacity: 1, y: 0 }}
+>
+  <Image
+              src="/logo.png"
+    alt="VitaMind Logo"
+    layout="fill"
+    objectFit="contain"
+    priority
+  />
+</motion.div>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
