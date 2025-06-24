@@ -1,6 +1,6 @@
 # VitaMind – AI-Powered Mental Health Companion
 
-[![GitHub Repo](https://img.shields.io/badge/GitHub-VitaMind-blue?style=for-the-badge&logo=github)](https://github.com/chedi-ouerghi/VitaminD)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-VitaMind-blue?style=for-the-badge&logo=github)](https://github.com/chedi-ouerghi/VitaMind)
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/chediouerghis-projects/v0-vitamin-d-landing-page)
 
 ## Overview
@@ -23,7 +23,7 @@ VitaMind is an ultra-modern, professional landing page for an AI-powered mental 
 ## Live Demo
 
 - **Production:** [https://vercel.com/chediouerghis-projects/v0-vitamin-d-landing-page](https://vercel.com/chediouerghis-projects/v0-vitamin-d-landing-page)
-- **GitHub:** [https://github.com/chedi-ouerghi/VitaminD](https://github.com/chedi-ouerghi/VitaminD)
+- **GitHub:** [https://github.com/chedi-ouerghi/VitaMind](https://github.com/chedi-ouerghi/VitaMind)
 
 ## Features
 
@@ -47,8 +47,8 @@ VitaMind is an ultra-modern, professional landing page for an AI-powered mental 
 ### Installation
 
 ```bash
-git clone https://github.com/chedi-ouerghi/VitaminD.git
-cd VitaminD
+git clone https://github.com/chedi-ouerghi/VitaMind.git
+cd VitaMind
 pnpm install
 # or
 npm install
