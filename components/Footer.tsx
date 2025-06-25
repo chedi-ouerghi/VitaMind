@@ -75,15 +75,15 @@ export default function Footer() {
             <div className="space-y-3 mb-6">
               <div className="flex items-center justify-center lg:justify-start space-x-3 text-[#518591]/80">
                 <Mail className="w-4 h-4 text-[#e3b01c]" />
-                <span>hello@vitamind.ai</span>
+                <span>support@vitamind.tn</span>
               </div>
               <div className="flex items-center justify-center lg:justify-start space-x-3 text-[#518591]/80">
                 <Phone className="w-4 h-4 text-[#e3b01c]" />
-                <span>+1 (555) 123-4567</span>
+                <span>+216 12 34 56 78</span>
               </div>
               <div className="flex items-center justify-center lg:justify-start space-x-3 text-[#518591]/80">
                 <MapPin className="w-4 h-4 text-[#e3b01c]" />
-                <span>San Francisco, CA</span>
+                <span>Tunisia, TN</span>
               </div>
             </div>
             {/* Certifications */}
@@ -161,7 +161,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[#518591]/10 gap-6 md:gap-0">
           <div className="text-[#518591]/80 text-sm text-center md:text-left">
-            © 2024 VitaMind. All rights reserved. Made with <Heart className="inline w-4 h-4 text-[#e3b01c] mx-1" />
+            © 2025 VitaMind. All rights reserved. Made with <Heart className="inline w-4 h-4 text-[#e3b01c] mx-1" />
             for mental health.
           </div>
           {/* Social Links */}
