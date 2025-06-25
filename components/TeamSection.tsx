@@ -6,25 +6,25 @@ import { motion } from "framer-motion";
 const team = [
   {
     name: "Roua Bellasswed",
-    role: "CEO & Co-founder",
+    role: "CEO ",
     img: "/roua.jpg",
     desc: "As CEO and co-founder of VitaMind, Roua leads the company’s vision to revolutionize mental health through AI. With deep expertise in NLP and computer vision, she bridges innovation and impact by designing intelligent systems that empower real-world solutions.",
   },
     {
     name: "Chedi Ouerghi",
-    role: "CWO & Co-founder",
+    role: "CWO ",
     img: "/chedi.jpg",
     desc: "Chief Web Officer at VitaMind, Chedi is a full-stack developer specializing in performant web, mobile, and desktop experiences. With a sharp focus on clean architecture and modern UI/UX, he transforms ideas into seamless, user-centric digital solutions.",
   },
   {
     name: "Ichrak Aguir",
-    role: "COO & Co-founder",
+    role: "COO ",
     img: "/ichrak.jpg",
     desc: "COO at VitaMind, Ichrak drives strategic operations and product innovation. Her dual background in engineering and full-stack development allows her to create scalable, inclusive platforms that put user well-being at the center of digital health.",
   },
   {
     name: "Omar Zribi",
-    role: "CTO & AI Researcher",
+    role: "CTO",
     img: "/omar.jpg",
     desc: "CTO at VitaMind, Omar leads the AI research direction of the company. With a strong academic foundation in intelligent systems, his work spans computer vision, reinforcement learning, and medical imaging—bridging cutting-edge research and practical innovation.",
   },
