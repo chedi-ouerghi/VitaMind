@@ -27,14 +27,7 @@ const features = [
     details: "AI-powered early warning system that identifies potential crisis situations.",
     color: "indigo",
   },
-  {
-    icon: Watch,
-    title: "Smartwatch Integration",
-    description: "Real-time mental health insights directly from your wrist",
-    details: "VitaMind leverages smartwatch sensors to continuously monitor your health data, offering seamless AI-driven diagnostics and support without needing your phone.",
-    color: "#c084fc", // Un violet doux et moderne (remplace "pink")
-    position: "left", // ou "center" selon ta structure
-  },
+
   {
     icon: Lock,
     title: "Privacy First",

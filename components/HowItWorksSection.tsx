@@ -14,7 +14,7 @@ const steps = [
     icon: BrainCircuit,
     title: "Step 1: Smart Diagnosis",
     description:
-      "VitaMind collects real-time health data through a smart watch. Using AI-powered analysis, it identifies potential mental health conditions.",
+      "Using AI-powered analysis, VitaMind identifies potential mental health conditions.",
     details:
       "It can detect signs of Bipolar Disorder, Schizophrenia, or ADHD based on physiological and behavioral metrics.",
     color: "#518591",
