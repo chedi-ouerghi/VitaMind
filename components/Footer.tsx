@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Brain, Mail, Phone, MapPin, Twitter, Linkedin, Github, Heart, Shield, Award } from "lucide-react"
+import { Brain, Mail, Phone, MapPin, Twitter, Linkedin, Heart, Shield, Award } from "lucide-react"
 
 export default function Footer() {
   const footerLinks = {
@@ -28,8 +28,7 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: Twitter, href: "#", label: "Twitter", color: "hover:bg-blue-500" },
-    { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:bg-blue-600" },
-    { icon: Github, href: "#", label: "GitHub", color: "hover:bg-gray-700" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/vitamind216", label: "LinkedIn", color: "hover:bg-blue-600" },
   ]
 
   const certifications = [
@@ -72,20 +71,34 @@ export default function Footer() {
               journey, supported by cutting-edge technology and compassionate care.
             </p>
             {/* Contact Info */}
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center justify-center lg:justify-start space-x-3 text-[#518591]/80">
-                <Mail className="w-4 h-4 text-[#e3b01c]" />
-                <span>support@vitamind.tn</span>
-              </div>
-              <div className="flex items-center justify-center lg:justify-start space-x-3 text-[#518591]/80">
-                <Phone className="w-4 h-4 text-[#e3b01c]" />
-                <span>+216 12 34 56 78</span>
-              </div>
-              <div className="flex items-center justify-center lg:justify-start space-x-3 text-[#518591]/80">
-                <MapPin className="w-4 h-4 text-[#e3b01c]" />
-                <span>Tunisia, TN</span>
-              </div>
-            </div>
+          <div className="space-y-3 mb-6">
+  <div className="flex items-center justify-center lg:justify-start space-x-3 text-[#518591]/80">
+    <Mail className="w-4 h-4 text-[#e3b01c]" />
+    <a href="mailto:vitamind.216@outlook.com" className="hover:underline">
+      support@vitamind.tn
+    </a>
+  </div>
+
+  <div className="flex items-center justify-center lg:justify-start space-x-3 text-[#518591]/80">
+    <Phone className="w-4 h-4 text-[#e3b01c]" />
+    <a href="tel:+21612345678" className="hover:underline">
+      +216 12 34 56 78
+    </a>
+  </div>
+
+  <div className="flex items-center justify-center lg:justify-start space-x-3 text-[#518591]/80">
+    <MapPin className="w-4 h-4 text-[#e3b01c]" />
+    <a
+      href="https://www.google.com/maps/place/Tunisia"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:underline"
+    >
+      Tunisia, TN
+    </a>
+  </div>
+</div>
+
             {/* Certifications */}
             <div className="space-y-2 w-full">
               <p className="text-sm font-medium text-[#518591] mb-3">Certifications & Compliance</p>
@@ -161,7 +174,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[#518591]/10 gap-6 md:gap-0">
           <div className="text-[#518591]/80 text-sm text-center md:text-left">
-            © 2025 VitaMind. All rights reserved. Made with <Heart className="inline w-4 h-4 text-[#e3b01c] mx-1" />
+            © 2025 VitaMind. All rights reserved
             for mental health.
           </div>
           {/* Social Links */}

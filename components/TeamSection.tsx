@@ -6,29 +6,31 @@ import { motion } from "framer-motion";
 const team = [
   {
     name: "Roua Bellasswed",
-    role: "CEO ",
-    img: "/roua.jpg",
-    desc: "As CEO and co-founder of VitaMind, Roua leads the company’s vision to revolutionize mental health through AI. With deep expertise in NLP and computer vision, she bridges innovation and impact by designing intelligent systems that empower real-world solutions.",
-  },
-    {
-    name: "Chedi Ouerghi",
-    role: "CWO ",
-    img: "/chedi.jpg",
-    desc: "Chief Web Officer at VitaMind, Chedi is a full-stack developer specializing in performant web, mobile, and desktop experiences. With a sharp focus on clean architecture and modern UI/UX, he transforms ideas into seamless, user-centric digital solutions.",
+    role: "CEO",
+    img: "/roua.jpeg",
+    desc: "Roua guides the company’s vision in mental health innovation. With expertise in NLP and computer vision, she creates AI systems that deliver real impact.",
   },
   {
-    name: "Ichrak Aguir",
-    role: "COO ",
-    img: "/ichrak.jpg",
-    desc: "COO at VitaMind, Ichrak drives strategic operations and product innovation. Her dual background in engineering and full-stack development allows her to create scalable, inclusive platforms that put user well-being at the center of digital health.",
+    name: "Chedi Ouerghi",
+    role: "COO",
+    img: "/chedi.jpg",
+    desc: "Chedi drives operational excellence through full-stack development and DevOps. He ensures scalable engineering practices that support digital health solutions.",
+  },
+  {
+    name: "Habiba Kamoun",
+    role: "CPO",
+    img: "/habiba.png",
+    desc: "Habiba defines the product strategy with her engineering and full-stack expertise. She designs inclusive platforms that enhance user well-being and growth.",
   },
   {
     name: "Omar Zribi",
     role: "CTO",
-    img: "/omar.jpg",
-    desc: "CTO at VitaMind, Omar leads the AI research direction of the company. With a strong academic foundation in intelligent systems, his work spans computer vision, reinforcement learning, and medical imaging—bridging cutting-edge research and practical innovation.",
+    img: "/omar.png",
+    desc: "Omar directs the company’s AI research strategy. With a strong background in intelligent systems, he advances innovation in computer vision and healthcare AI.",
   },
 ];
+
+
 
 
 export default function TeamSection() {
