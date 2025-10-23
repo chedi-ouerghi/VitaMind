@@ -1,25 +1,46 @@
+import BenefitsSection from "@/components/BenefitsSection"
+import CTASection from "@/components/CTASection"
+import FeaturesSection from "@/components/FeaturesSection"
+import FloatingMenu from "@/components/FloatingMenu"
+import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import HeroSection from "@/components/HeroSection"
-import ProblemSolutionSection from "@/components/ProblemSolutionSection"
 import HowItWorksSection from "@/components/HowItWorksSection"
-import BenefitsSection from "@/components/BenefitsSection"
-import FeaturesSection from "@/components/FeaturesSection"
+import ProblemSolutionSection from "@/components/ProblemSolutionSection"
 import TeamSection from "@/components/TeamSection"
-import CTASection from "@/components/CTASection"
-import Footer from "@/components/Footer"
+import { LazyMotion, domAnimation } from "framer-motion"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-black overflow-x-hidden">
-      <Header />
-      <HeroSection />
-      <ProblemSolutionSection />
-      <HowItWorksSection />
-      <BenefitsSection />
-      <FeaturesSection />
-      <TeamSection />
-      <CTASection />
-      <Footer />
-    </div>
+    <LazyMotion features={domAnimation}>
+      <div className="min-h-screen bg-white text-black overflow-x-hidden">
+        <Header />
+        <FloatingMenu />
+        <main>
+          <section id="hero">
+            <HeroSection />
+          </section>
+          <section id="problem-solution">
+            <ProblemSolutionSection />
+          </section>
+          <section id="how-it-works">
+            <HowItWorksSection />
+          </section>
+          <section id="benefits">
+            <BenefitsSection />
+          </section>
+          <section id="features">
+            <FeaturesSection />
+          </section>
+          <section id="team">
+            <TeamSection />
+          </section>
+          <section id="cta">
+            <CTASection />
+          </section>
+        </main>
+        <Footer />
+      </div>
+    </LazyMotion>
   )
 }

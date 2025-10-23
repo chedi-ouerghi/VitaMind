@@ -34,7 +34,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo animé */}
           <motion.div
-            className="relative w-12 h-12 flex-shrink-0"
+            className="relative w-20 h-20 flex-shrink-0"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >

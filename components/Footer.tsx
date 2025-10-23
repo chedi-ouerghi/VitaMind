@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Brain, Mail, Phone, MapPin, Twitter, Linkedin, Heart, Shield, Award } from "lucide-react"
+import { Mail, Phone, MapPin, Twitter, Linkedin, Heart, Shield, Award } from "lucide-react"
+import Image from "next/image"
 
 export default function Footer() {
   const footerLinks = {
@@ -54,14 +55,19 @@ export default function Footer() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="relative">
-                <Brain className="w-8 h-8 text-[#518591]" />
-                <motion.div
-                  className="absolute inset-0 bg-[#e3b01c] rounded-full opacity-20"
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                />
-              </div>
+            <motion.div
+                      className="relative w-24 h-24 flex-shrink-0"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Image
+                        src="/logo.png"
+                        alt="VitaMind Logo"
+                        fill
+                        className="object-contain drop-shadow-sm"
+                        priority
+                      />
+              </motion.div>
               <span className="text-2xl font-bold bg-gradient-to-r from-[#518591] to-[#e3b01c] bg-clip-text text-transparent">
                 VitaMind
               </span>
