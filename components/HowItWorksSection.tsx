@@ -1,45 +1,71 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { BrainCircuit, HeartPulse, ArrowDown, Shield } from "lucide-react"
 
 export default function HowItWorksSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const controls = useAnimation()
 
-const steps = [
-  {
-    icon: BrainCircuit,
-    title: "Step 1: Smart Diagnosis",
-    description:
-      "Using AI-powered analysis, VitaMind identifies potential mental health conditions.",
-    details:
-      "It can detect signs of Bipolar Disorder, Schizophrenia, or ADHD based on physiological and behavioral metrics.",
-    color: "#518591",
-    position: "left",
-  },
-  {
-    icon: HeartPulse,
-    title: "Step 2: AI-Driven Therapy",
-    description:
-      "Once diagnosed, a personalized treatment journey begins, powered by an intelligent AI assistant.",
-    details:
-      "It predicts behavioral patterns and engages users with calming conversations, color and music therapy, and relaxation tools. If needed, it alerts a medical professional for human intervention.",
-    color: "#e3b01c",
-    position: "right",
-  },
-  {
-    icon: Shield,
-    title: "Proactive Support",
-    description: "Real-time interventions and personalized coping strategies",
-    details:
-      "Immediate support when you need it most, with personalized recommendations based on your unique profile and wellness data.",
-    color: "#518591",
-    position: "center",
-  },
-]
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible")
+    }
+  }, [isInView, controls])
+
+  const steps = [
+    {
+      icon: BrainCircuit,
+      title: "Smart Analysis",
+      description:
+        "VitaMind's AI analyzes your communication patterns, mood fluctuations, and behavioral indicators.",
+      features: [
+        "Continuous mood monitoring",
+        "Pattern recognition",
+        "Early warning detection",
+        "Behavioral analysis"
+      ],
+      details:
+        "Advanced algorithms process your interactions to understand your unique mental wellness profile.",
+      color: "#518591",
+      position: "left",
+    },
+    {
+      icon: HeartPulse,
+      title: "Personalized Support",
+      description:
+        "Receive tailored therapeutic interventions and coping strategies based on your needs.",
+      features: [
+        "AI-driven conversations",
+        "Customized coping tools",
+        "Mood regulation exercises",
+        "Crisis prevention"
+      ],
+      details:
+        "Get immediate, personalized support through empathetic AI conversations and evidence-based interventions.",
+      color: "#e3b01c",
+      position: "right",
+    },
+    {
+      icon: Shield,
+      title: "Continuous Care",
+      description:
+        "24/7 monitoring and support ensures you're never alone in your mental health journey.",
+      features: [
+        "Round-the-clock availability",
+        "Progress tracking",
+        "Professional notifications",
+        "Emergency response"
+      ],
+      details:
+        "Experience seamless, ongoing support with real-time monitoring and instant access to help when needed.",
+      color: "#518591",
+      position: "center",
+    },
+  ]
 
 
   const metrics = [

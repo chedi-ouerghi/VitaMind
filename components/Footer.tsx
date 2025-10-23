@@ -82,7 +82,7 @@ export default function Footer() {
   <div className="flex items-center justify-center lg:justify-start space-x-3 text-[#518591]/80">
     <Phone className="w-4 h-4 text-[#e3b01c]" />
     <a href="tel:+21612345678" className="hover:underline">
-      +216 12 34 56 78
+      +216 25 02 59 17
     </a>
   </div>
 
@@ -99,23 +99,7 @@ export default function Footer() {
   </div>
 </div>
 
-            {/* Certifications */}
-            <div className="space-y-2 w-full">
-              <p className="text-sm font-medium text-[#518591] mb-3">Certifications & Compliance</p>
-              <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-                {certifications.map((cert, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center space-x-2 bg-white rounded-full px-3 py-1 border border-[#518591]/10 shadow-sm"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <cert.icon className="w-4 h-4 text-[#e3b01c]" />
-                    <span className="text-xs text-[#518591]/80">{cert.label}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+       
           </div>
           {/* Links Sections */}
           <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 md:gap-x-12 col-span-3">

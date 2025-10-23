@@ -1,52 +1,52 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { Clock, Zap, TrendingDown, Users, Brain, Heart } from "lucide-react"
+import { useInView } from "framer-motion"
+import { Clock, Zap, Users, Brain, Lock, Microscope, ShieldCheck } from "lucide-react"
 
 const benefits = [
   {
     icon: Clock,
     title: "Always Available",
-    description: "24/7 support whenever you need it most",
-    gradient: "from-violet-500 to-purple-500",
-    bgGradient: "from-violet-50 to-purple-50",
-  },
-  {
-    icon: Zap,
-    title: "Instant Response",
-    description: "Immediate support in critical moments",
-    gradient: "from-purple-500 to-pink-500",
-    bgGradient: "from-purple-50 to-pink-50",
-  },
-  {
-    icon: TrendingDown,
-    title: "Crisis Prevention",
-    description: "Proactive intervention to prevent episodes",
-    gradient: "from-indigo-500 to-violet-500",
-    bgGradient: "from-indigo-50 to-violet-50",
+    description: "Get instant support 24/7 — because mental health doesn't follow a schedule.",
+    compare: "Unlike others, VitaMind never sleeps.",
+    badge: "24/7 Access",
   },
   {
     icon: Brain,
-    title: "Personalized AI",
-    description: "Learns your unique patterns and needs",
-    gradient: "from-violet-600 to-purple-600",
-    bgGradient: "from-violet-50 to-purple-50",
+    title: "Emotionally Intelligent",
+    description: "AI that listens and responds with empathy, not just data.",
+    compare: "Others rely on scripts — we adapt to your emotions.",
+    badge: "Human-like AI",
   },
   {
-    icon: Heart,
-    title: "Emotional Intelligence",
-    description: "Understands context with empathy",
-    gradient: "from-pink-500 to-rose-500",
-    bgGradient: "from-pink-50 to-rose-50",
+    icon: Lock,
+    title: "Privacy First",
+    description: "Your data stays yours. End-to-end encryption ensures your journey remains private.",
+    compare: "Most apps track you — we protect you.",
+    badge: "GDPR+ Secure",
+  },
+  {
+    icon: Microscope,
+    title: "Science-Based",
+    description: "Built on cognitive behavioral therapy and validated by real psychologists.",
+    compare: "Backed by science, not trends.",
+    badge: "Evidence-Based",
+  },
+  {
+    icon: Zap,
+    title: "Rapid Response",
+    description: "Immediate personalized help when you need it most.",
+    compare: "Fastest emotional response system in its class.",
+    badge: "Instant Support",
   },
   {
     icon: Users,
     title: "Care Network",
-    description: "Connects you with healthcare providers",
-    gradient: "from-purple-600 to-indigo-600",
-    bgGradient: "from-purple-50 to-indigo-50",
+    description: "Seamlessly connects with real professionals — on your terms.",
+    compare: "Unlike others, we connect AI and humans.",
+    badge: "Best Choice 2025",
   },
 ]
 
@@ -58,153 +58,98 @@ export default function BenefitsSection() {
     <section
       ref={ref}
       className="py-24 relative overflow-hidden"
-      style={{
-        background: "linear-gradient(120deg, #f7fafc 60%, #e3b01c10 100%)"
-      }}
+      style={{ background: "linear-gradient(120deg, #f7fafc 60%, #e3b01c10 100%)" }}
     >
-      {/* Modern colorful background overlays */}
+      {/* Background Animations */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Soft white overlay for "white but colorful" look */}
-        <div className="absolute inset-0 bg-white/80" />
-        {/* Subtle color gradients */}
         <motion.div
-          className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-[#518591]/20 via-transparent to-transparent rounded-full blur-[120px]"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.18, 0.28, 0.18] }}
-          transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY }}
+          className="absolute top-0 left-0 w-[40%] h-[40%] bg-gradient-to-br from-[#518591]/20 to-transparent rounded-full blur-[120px]"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
+          transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-0 right-0 w-2/3 h-2/3 bg-gradient-to-tl from-[#e3b01c]/20 via-transparent to-transparent rounded-full blur-[140px]"
-          animate={{ scale: [1.1, 1, 1.1], opacity: [0.12, 0.22, 0.12] }}
-          transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY }}
+          className="absolute bottom-0 right-0 w-[50%] h-[50%] bg-gradient-to-tl from-[#e3b01c]/20 to-transparent rounded-full blur-[150px]"
+          animate={{ scale: [1.1, 0.9, 1.1], opacity: [0.1, 0.25, 0.1] }}
+          transition={{ duration: 9, repeat: Infinity }}
         />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-[18rem] h-[18rem] bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.08, 0.18, 0.08] }}
-          transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY }}
-        />
-        {/* Subtle dark overlay for depth */}
-        <div className="absolute inset-0 bg-neutral-900/5" />
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%238B5CF6' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          />
-        </div>
       </div>
 
-      <div className="container mx-auto px-4 relative">
+      <div className="relative container mx-auto px-6">
+        {/* Title Section */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <motion.div
-            className="inline-block mb-4"
-            initial={{ scale: 0 }}
-            animate={isInView ? { scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <span className="text-4xl">🧠</span>
-          </motion.div>
-          <h2 className="text-4xl md:text-6xl font-light text-[#518591] mb-6">
-            Why Choose{" "}
-            <span className="bg-gradient-to-r from-[#518591] to-[#e3b01c] bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-light text-[#518591] mb-6">
+            The{" "}
+            <span className="bg-gradient-to-r from-[#518591] to-[#e3b01c] bg-clip-text text-transparent font-medium">
               VitaMind
-            </span>
-            ?
+            </span>{" "}
+            Advantage
           </h2>
-          <p className="text-xl text-[#518591]/80 max-w-3xl mx-auto">
-            Experience the next generation of mental health support with AI technology designed specifically for your
-            wellbeing.
+          <p className="text-lg md:text-xl text-[#518591]/80 max-w-3xl mx-auto">
+            Discover what makes us different — from emotional intelligence to privacy-first innovation.
           </p>
         </motion.div>
 
-        {/* Hexagonal Grid Layout */}
-        <div className="relative max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
+        {/* Benefits Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {benefits.map((benefit, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{
+                y: -8,
+                scale: 1.03,
+                boxShadow: "0px 20px 40px rgba(81,133,145,0.15)",
+              }}
+              className="group relative bg-white/80 backdrop-blur-xl border border-[#518591]/10 rounded-3xl p-8 shadow-md transition-all duration-300 overflow-hidden"
+            >
+              {/* Gradient Overlay */}
               <motion.div
-                key={index}
-                className="group relative"
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div
-                  className="relative bg-white rounded-3xl p-8 border border-[#518591]/10 hover:border-[#e3b01c] transition-all duration-500 h-full group-hover:shadow-2xl group-hover:shadow-[#e3b01c]/10"
+                className="absolute inset-0 bg-gradient-to-br from-[#518591]/5 via-transparent to-[#e3b01c]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
+              />
+
+              {/* Icon */}
+              <div className="relative z-10 flex items-center justify-between mb-6">
+                <motion.div
+                  className="w-14 h-14 bg-gradient-to-br from-[#518591] to-[#e3b01c] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300"
                 >
-                  {/* Floating Icon */}
-                  <motion.div
-                    className="w-16 h-16 bg-gradient-to-br from-[#518591] to-[#e3b01c] rounded-2xl flex items-center justify-center mb-6 shadow-lg"
-                    whileHover={{
-                      scale: 1.1,
-                      rotate: [0, -5, 5, 0],
-                      y: [-5, -10, -5],
-                    }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <benefit.icon className="w-8 h-8 text-white" />
-                  </motion.div>
+                  <benefit.icon className="w-7 h-7 text-white" />
+                </motion.div>
+                <span className="text-xs font-semibold text-white bg-[#518591]/90 px-3 py-1 rounded-full uppercase tracking-wide shadow-sm">
+                  {benefit.badge}
+                </span>
+              </div>
 
-                  <h3 className="text-xl font-semibold text-[#518591] mb-4 group-hover:text-[#e3b01c] transition-colors">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-[#518591]/80 group-hover:text-[#e3b01c] transition-colors leading-relaxed">
-                    {benefit.description}
-                  </p>
+              {/* Text Content */}
+              <h3 className="text-xl font-semibold text-[#518591] mb-3 group-hover:text-[#e3b01c] transition-colors">
+                {benefit.title}
+              </h3>
+              <p className="text-[#518591]/80 mb-4 leading-relaxed">{benefit.description}</p>
 
-                  {/* Decorative Elements */}
-                  <motion.div
-                    className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#e3b01c]/20"
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.3, 0.6, 0.3],
-                    }}
-                    transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, delay: index * 0.5 }}
-                  />
-
-                  {/* Hover Effect Line */}
-                  <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#518591] to-[#e3b01c] rounded-b-3xl"
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ originX: 0 }}
-                  />
-                </div>
+              {/* Comparison Reveal */}
+              <motion.div
+                className="opacity-0 group-hover:opacity-100 text-sm text-[#e3b01c]/90 italic transition-opacity duration-500"
+              >
+                {benefit.compare}
               </motion.div>
-            ))}
-          </div>
-        </div>
 
-        {/* Bottom Stats */}
-        <motion.div
-          className="mt-20 text-center"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
-          <div className="inline-flex items-center space-x-8 bg-white rounded-full px-8 py-4 border border-[#518591]/10">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-[#518591]">98%</div>
-              <div className="text-sm text-[#518591]/80">Accuracy</div>
-            </div>
-            <div className="w-px h-8 bg-[#518591]/10"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-[#e3b01c]">24/7</div>
-              <div className="text-sm text-[#518591]/80">Available</div>
-            </div>
-            <div className="w-px h-8 bg-[#518591]/10"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-[#518591]">50k+</div>
-              <div className="text-sm text-[#518591]/80">Users</div>
-            </div>
-          </div>
-        </motion.div>
+              {/* Floating Accent */}
+              <motion.div
+                className="absolute bottom-5 right-5 text-[#e3b01c]"
+                animate={{ y: [0, -5, 0], opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 2.5, repeat: Infinity }}
+              >
+                <ShieldCheck className="w-5 h-5" />
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )
