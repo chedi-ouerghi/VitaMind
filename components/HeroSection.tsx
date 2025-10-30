@@ -6,7 +6,7 @@ import { ArrowRight, Brain, Cpu, Network, Play, Zap } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 export default function HeroSection() {
-  const fullText = "VitaMind Tracking Minds. Transforming Lives :"
+  const fullText = "VitaMind Tracking Minds. Transforming Lives"
   const [displayText, setDisplayText] = useState("")
   const [currentTime, setCurrentTime] = useState("")
   const ref = useRef(null)
