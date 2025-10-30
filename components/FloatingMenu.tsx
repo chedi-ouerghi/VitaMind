@@ -8,6 +8,7 @@ const sections = [
   { id: "problem-solution", name: "Challenges" },
   { id: "how-it-works", name: "How It Works" },
   { id: "benefits", name: "Benefits" },
+  { id: "parent-pack", name: "Parent Pack" },
   { id: "features", name: "Features" },
   { id: "team", name: "Team" },
   { id: "cta", name: "Get Started" },

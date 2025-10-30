@@ -1,10 +1,13 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { animate, delay, motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Zap } from "lucide-react"
 import Image from "next/image"
+import src from "@emotion/is-prop-valid"
+import { Sign } from "crypto"
+import { div, i } from "framer-motion/client"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -42,7 +45,7 @@ export default function Header() {
               src="/logo.png"
               alt="VitaMind Logo"
               fill
-              className="object-contain drop-shadow-sm"
+              className="object-contain"
               priority
             />
           </motion.div>

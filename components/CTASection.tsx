@@ -1,10 +1,9 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef, useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Sparkles, Shield, Lock, Clock } from "lucide-react"
+import { motion, useInView } from "framer-motion"
+import { ArrowRight, Clock, Lock, Shield, Sparkles } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 import { Input } from "./ui/input"
 
 export default function CTASection() {

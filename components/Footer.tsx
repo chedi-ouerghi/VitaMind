@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Twitter, Linkedin, Heart, Shield, Award } from "lucide-react"
+import { Award, Heart, Linkedin, Mail, MapPin, Phone, Shield, Twitter } from "lucide-react"
 import Image from "next/image"
 
 export default function Footer() {
@@ -64,7 +64,7 @@ export default function Footer() {
                         src="/logo.png"
                         alt="VitaMind Logo"
                         fill
-                        className="object-contain drop-shadow-sm"
+                        className="object-contain"
                         priority
                       />
               </motion.div>

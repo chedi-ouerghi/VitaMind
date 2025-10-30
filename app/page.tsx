@@ -6,6 +6,7 @@ import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import HeroSection from "@/components/HeroSection"
 import HowItWorksSection from "@/components/HowItWorksSection"
+import ParentPackSection from "@/components/ParentPackSection"
 import ProblemSolutionSection from "@/components/ProblemSolutionSection"
 import TeamSection from "@/components/TeamSection"
 import { LazyMotion, domAnimation } from "framer-motion"
@@ -28,6 +29,9 @@ export default function Home() {
           </section>
           <section id="benefits">
             <BenefitsSection />
+          </section>
+          <section id="parent-pack">
+            <ParentPackSection />
           </section>
           <section id="features">
             <FeaturesSection />

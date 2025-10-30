@@ -1,9 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useInView } from "framer-motion"
+import { Brain, Clock, Lock, ShieldCheck, Users, Zap } from "lucide-react"
 import { useRef } from "react"
-import { useInView } from "framer-motion"
-import { Clock, Zap, Users, Brain, Lock, Microscope, ShieldCheck } from "lucide-react"
 
 const benefits = [
   {
@@ -26,13 +25,6 @@ const benefits = [
     description: "Your data stays yours. End-to-end encryption ensures your journey remains private.",
     compare: "Most apps track you — we protect you.",
     badge: "GDPR+ Secure",
-  },
-  {
-    icon: Microscope,
-    title: "Science-Based",
-    description: "Built on cognitive behavioral therapy and validated by real psychologists.",
-    compare: "Backed by science, not trends.",
-    badge: "Evidence-Based",
   },
   {
     icon: Zap,

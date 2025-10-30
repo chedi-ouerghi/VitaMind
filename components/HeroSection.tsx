@@ -1,9 +1,9 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useEffect, useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play, Sparkles, Brain, Heart, Shield, Cpu, Network, Zap } from "lucide-react"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { ArrowRight, Brain, Cpu, Network, Play, Zap } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 
 export default function HeroSection() {
   const fullText = "VitaMind Tracking Minds. Transforming Lives :"
@@ -206,28 +206,7 @@ export default function HeroSection() {
           <span>VitaMind: ACTIVE</span>
         </motion.div>
 
-        {/* Enhanced Badge */}
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: "backOut" }}
-        >
-          <div className="inline-flex items-center px-6 py-3 bg-white/80 bg-gradient-to-r from-[#518591]/10 to-[#e3b01c]/10 border border-[#518591]/20 rounded-full text-[#518591] font-semibold backdrop-blur-sm shadow-2xl relative overflow-hidden">
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-              animate={{ x: ['-100%', '200%'] }}
-              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-            />
-            <Sparkles className="w-5 h-5 mr-2 text-[#e3b01c]" />
-            Neural AI Mental Health Platform v2.0
-            <motion.div
-              className="ml-2 w-2 h-2 bg-[#e3b01c] rounded-full"
-              animate={{ scale: [1, 1.8, 1], opacity: [1, 0.5, 1] }}
-              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-            />
-          </div>
-        </motion.div>
+      
 
         {/* Enhanced Title with Glitch Effect */}
         <motion.div
