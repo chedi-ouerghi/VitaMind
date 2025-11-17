@@ -268,7 +268,7 @@ export default function HeroSection() {
 
         {/* Enhanced CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+          className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.8, ease: "easeOut" }}
@@ -302,19 +302,21 @@ export default function HeroSection() {
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            <Button
-              variant="outline"
-              size="lg"
-              className="relative overflow-hidden border-2 border-[#518591]/30 bg-white/80 text-[#518591] hover:bg-[#518591]/5 hover:border-[#518591]/50 px-8 py-6 text-lg rounded-2xl group shadow-xl backdrop-blur-sm font-semibold"
-            >
-              <span className="relative z-10 flex items-center">
-                <Play className="mr-3 w-5 h-5 group-hover:scale-110 transition-transform duration-200 text-[#e3b01c]" />
-                View Neural Demo
-              </span>
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-[#e3b01c]/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </Button>
+            <a href="https://vitamindsurvey.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="outline"
+                size="lg"
+                className="relative overflow-hidden border-2 border-[#518591]/30 bg-white/80 text-[#518591] hover:bg-[#518591]/5 hover:border-[#518591]/50 px-8 py-6 text-lg rounded-2xl group shadow-xl backdrop-blur-sm font-semibold"
+              >
+                <span className="relative z-10 flex items-center">
+                  <Play className="mr-3 w-5 h-5 group-hover:scale-110 transition-transform duration-200 text-[#e3b01c]" />
+                  Take the Survey
+                </span>
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-r from-[#e3b01c]/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </Button>
+            </a>
           </motion.div>
         </motion.div>
 

@@ -1,9 +1,8 @@
 "use client"
 
-import { motion, useAnimation } from "framer-motion"
-import { useInView } from "framer-motion"
+import { motion, useAnimation, useInView } from "framer-motion"
+import { ArrowDown, BrainCircuit, HeartPulse, Pen, Shield } from "lucide-react"
 import { useEffect, useRef } from "react"
-import { BrainCircuit, HeartPulse, ArrowDown, Shield } from "lucide-react"
 
 export default function HowItWorksSection() {
   const ref = useRef(null)
@@ -34,6 +33,24 @@ export default function HowItWorksSection() {
       position: "left",
     },
     {
+      icon: Pen,
+      title: "Begin the Journey — Tell Your Story",
+      description:
+        "You're greeted with a poetic, calming AI form that listens—",
+      features: [
+        "Storytelling-based questions",
+        "Safe, judgment-free space",
+        "Authentic self-expression",
+        "Emotional clarity"
+      ],
+      details:
+        "Through storytelling-based questions, you share how you feel, think, and experience the world. No labels. Just your truth.",
+      color: "#e3b01c",
+      position: "right",
+      isImage: true,
+      imageUrl: "/Begin_the_Journey.png",
+    },
+    {
       icon: HeartPulse,
       title: "Personalized Support",
       description:
@@ -46,8 +63,8 @@ export default function HowItWorksSection() {
       ],
       details:
         "Get immediate, personalized support through empathetic AI conversations and evidence-based interventions.",
-      color: "#e3b01c",
-      position: "right",
+      color: "#518591",
+      position: "left",
     },
     {
       icon: Shield,
@@ -62,11 +79,10 @@ export default function HowItWorksSection() {
       ],
       details:
         "Experience seamless, ongoing support with real-time monitoring and instant access to help when needed.",
-      color: "#518591",
-      position: "center",
+      color: "#e3b01c",
+      position: "right",
     },
   ]
-
 
   const metrics = [
     { label: "Response Time", value: "<2s", icon: "⚡", color: "#518591" },
@@ -133,16 +149,18 @@ export default function HowItWorksSection() {
                 transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
               >
                 <div className="flex-1">
-                  <motion.div
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 shadow-lg"
-                    style={{
-                      background: `linear-gradient(135deg, ${step.color}, ${step.color}80)`,
-                    }}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <step.icon className="w-8 h-8 text-white" />
-                  </motion.div>
+                  {step.icon && (
+                    <motion.div
+                      className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 shadow-lg"
+                      style={{
+                        background: `linear-gradient(135deg, ${step.color}, ${step.color}80)`,
+                      }}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <step.icon className="w-8 h-8 text-white" />
+                    </motion.div>
+                  )}
 
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{step.title}</h3>
                   <p className="text-lg text-gray-600 mb-6 leading-relaxed">{step.description}</p>
@@ -150,46 +168,88 @@ export default function HowItWorksSection() {
                 </div>
 
                 <div className="flex-1 flex justify-center">
-                  <motion.div
-                    className="relative w-80 h-80 bg-gradient-to-br from-white to-[#518591]/5 rounded-3xl border border-[#518591]/10 shadow-2xl flex items-center justify-center"
-                    whileHover={{ scale: 1.05, rotate: 2 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <motion.div
-                      className="w-32 h-32 rounded-2xl flex items-center justify-center shadow-xl"
-                      style={{
-                        background: `linear-gradient(135deg, ${step.color}, ${step.color}60)`,
-                      }}
-                      animate={{
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 5, 0],
-                      }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-                    >
-                      <step.icon className="w-16 h-16 text-white" />
-                    </motion.div>
+                  {step.isImage ? (
+               <motion.div
+  className="
+    relative w-80 h-80 
+    bg-gradient-to-br from-white to-[#518591]/5 
+    rounded-3xl border border-[#518591]/10 shadow-2xl overflow-hidden
+    [perspective:1000px]
+  "
+  whileHover={{ scale: 1.05 }}
+  transition={{ duration: 0.4 }}
+>
+  <motion.img
+    src={step.imageUrl}
+    className="
+      absolute inset-0 w-full h-full object-contain rounded-3xl border border-[#518591]/10 shadow-2xl overflow-hidden
+      [transform-style:preserve-3d]
+    "
+    animate={{
+      rotateY: [16, 12, 16],
+      rotateX: [3, 0, 3],        
+      scale: [1, 1.06, 1],
+      y: [0, -8, 0],
+    }}
+    transition={{
+      duration: 10,
+      repeat: Infinity,
+      ease: "easeInOut",   
+      rotateX: [3, 0, 3],        
+      scale: [1, 1.06, 1],
+      y: [0, -8, 0],
+    }}
+    transition={{
+      duration: 10,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  />
+</motion.div>
 
-                    {[...Array(3)].map((_, i) => (
+
+                  ) : (
+                    <motion.div
+                      className="relative w-80 h-80 bg-gradient-to-br from-white to-[#518591]/5 rounded-3xl border border-[#518591]/10 shadow-2xl flex items-center justify-center"
+                      whileHover={{ scale: 1.05, rotate: 2 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       <motion.div
-                        key={i}
-                        className="absolute w-4 h-4 rounded-full"
+                        className="w-32 h-32 rounded-2xl flex items-center justify-center shadow-xl"
                         style={{
-                          background: i % 2 === 0 ? step.color : "#e3b01c",
-                          top: `${20 + i * 25}%`,
-                          right: `${10 + i * 15}%`,
+                          background: `linear-gradient(135deg, ${step.color}, ${step.color}60)`,
                         }}
                         animate={{
-                          y: [0, -20, 0],
-                          opacity: [0.3, 0.8, 0.3],
+                          scale: [1, 1.1, 1],
+                          rotate: [0, 5, 0],
                         }}
-                        transition={{
-                          duration: 3,
-                          repeat: Number.POSITIVE_INFINITY,
-                          delay: i * 0.5,
-                        }}
-                      />
-                    ))}
-                  </motion.div>
+                        transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
+                      >
+                        <step.icon className="w-16 h-16 text-white" />
+                      </motion.div>
+
+                      {[...Array(3)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-4 h-4 rounded-full"
+                          style={{
+                            background: i % 2 === 0 ? step.color : "#e3b01c",
+                            top: `${20 + i * 25}%`,
+                            right: `${10 + i * 15}%`,
+                          }}
+                          animate={{
+                            y: [0, -20, 0],
+                            opacity: [0.3, 0.8, 0.3],
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Number.POSITIVE_INFINITY,
+                            delay: i * 0.5,
+                          }}
+                        />
+                      ))}
+                    </motion.div>
+                  )}
                 </div>
               </motion.div>
 

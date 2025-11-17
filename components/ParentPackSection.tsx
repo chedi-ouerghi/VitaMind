@@ -1,12 +1,8 @@
 "use client"
 
-import { animate, delay, inView, motion, useInView } from "framer-motion"
+import { motion, useInView } from "framer-motion"
+import { BookOpen, Compass, HelpCircle, Phone, Users } from "lucide-react"
 import { useRef } from "react"
-import { HelpCircle, BookOpen, Compass, Users, Phone } from "lucide-react"
-import { p, div } from "framer-motion/client"
-import { Icon } from "next/dist/lib/metadata/types/metadata-types"
-import { connection } from "next/server"
-import path from "path"
 
 const items = [
   {

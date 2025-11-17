@@ -1,9 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
+import { motion, useInView } from "framer-motion"
+import { BarChart3, Lock, MessageSquare, Shield } from "lucide-react"
 import { useRef, useState } from "react"
-import { MessageSquare, BarChart3, Shield, Lock, Watch } from "lucide-react"
 
 const features = [
   {
