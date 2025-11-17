@@ -1,8 +1,15 @@
 "use client"
 
+import src from "@emotion/is-prop-valid"
+import { on } from "events"
 import { motion } from "framer-motion"
-import { Award, Heart, Linkedin, Mail, MapPin, Phone, Shield, Twitter } from "lucide-react"
+import { div, p, ul, label, data } from "framer-motion/client"
+import { link } from "fs"
+import { Award, Heart, Linkedin, Mail, MapPin, Phone, Shield, Twitter, Type } from "lucide-react"
 import Image from "next/image"
+import { type } from "os"
+import { features } from "process"
+import style from "styled-jsx/style"
 
 export default function Footer() {
   const footerLinks = {
@@ -61,16 +68,13 @@ export default function Footer() {
                       transition={{ duration: 0.2 }}
                     >
                       <Image
-                        src="/logo.png"
+                        src="/logo_texte.png"
                         alt="VitaMind Logo"
                         fill
                         className="object-contain"
                         priority
                       />
               </motion.div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-[#518591] to-[#e3b01c] bg-clip-text text-transparent">
-                VitaMind
-              </span>
             </motion.div>
             <p className="text-[#518591]/80 mb-6 max-w-md leading-relaxed">
               Empowering individuals with bipolar disorder through intelligent AI companionship. Your mental health
@@ -81,7 +85,7 @@ export default function Footer() {
   <div className="flex items-center justify-center lg:justify-start space-x-3 text-[#518591]/80">
     <Mail className="w-4 h-4 text-[#e3b01c]" />
     <a href="mailto:vitamind.216@outlook.com" className="hover:underline">
-      support@vitamind.tn
+      vitamind.216@outlook.com
     </a>
   </div>
 

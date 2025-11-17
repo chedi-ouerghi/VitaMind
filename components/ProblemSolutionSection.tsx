@@ -1,9 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
+import { motion, useInView } from "framer-motion"
+import { AlertTriangle, ArrowRight, CheckCircle, Heart, Shield, Target, TrendingUp, Zap } from "lucide-react"
 import { useRef } from "react"
-import { AlertTriangle, Heart, Shield, CheckCircle, ArrowRight, Target, Zap, TrendingUp } from "lucide-react"
 
 export default function ProblemSolutionSection() {
   const ref = useRef(null)
@@ -12,9 +11,9 @@ export default function ProblemSolutionSection() {
   const problems = [
     {
       icon: AlertTriangle,
-      title: "Feeling Lost in Information",
+      title: "Lack of Information",
       description:
-        "With so much mental health advice online, it's overwhelming to know what's reliable and what actually works for you",
+        "With so much mental health advice, it's overwhelming to know what's reliable and what actually works for you",
       impact: "76% feel overwhelmed by mental health information",
       color: "#518591",
       bgColor: "from-[#518591]/10 to-[#518591]/5",
@@ -42,7 +41,7 @@ export default function ProblemSolutionSection() {
   const solutions = [
     {
       icon: Zap,
-      title: "AI-Powered Clarity",
+      title: "AI-Powered",
       description:
         "Get clear, personalized guidance backed by science. Our AI filters through the noise to give you exactly what you need, when you need it",
       benefit: "93% found clearer mental health direction",
@@ -200,8 +199,8 @@ export default function ProblemSolutionSection() {
           transition={{ duration: 1, delay: 1 }}
         >
           <div className="text-center mb-14">
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">The VitaMind Revolution</h3>
-            <p className="text-md md:text-lg text-gray-600 max-w-xl mx-auto">How we transform challenges into opportunities for lasting mental wellness</p>
+            <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">VitaMind Revolution</h3>
+            <p className="text-md md:text-lg text-gray-600 max-w-xl mx-auto">How we transform challenges into opportunities for mental wellness</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {solutions.map((solution, index) => (

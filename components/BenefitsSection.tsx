@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useInView } from "framer-motion"
-import { Brain, Clock, Lock, ShieldCheck, Users, Zap } from "lucide-react"
+import { BookOpenCheckIcon, Brain, BrainCircuit, Clock, Lock, ShieldCheck, Zap } from "lucide-react"
 import { useRef } from "react"
 
 const benefits = [
@@ -33,13 +33,20 @@ const benefits = [
     compare: "Fastest emotional response system in its class.",
     badge: "Instant Support",
   },
-  {
-    icon: Users,
-    title: "Care Network",
-    description: "Seamlessly connects with real professionals — on your terms.",
-    compare: "Unlike others, we connect AI and humans.",
-    badge: "Best Choice 2025",
-  },
+{
+  icon: BookOpenCheckIcon,
+  title: "Storytelling-Based Diagnostics",
+  description: "Detect subtle emotional and behavioral patterns through immersive, narrative-driven questions.",
+  compare: "Unlike traditional forms, VitaMind turns diagnostics into a human-centered storytelling experience.",
+  badge: "Innovative Approach 2025",
+},
+{
+  icon: BrainCircuit,
+  title: "AI-powered Recommendation",
+  description: "Analyzes user responses and suggests the most suitable psychological or behavioral test for accurate evaluation.",
+  compare: "Unlike others, VitaMind adapts each diagnosis through personalized storytelling and smart AI insights.",
+  badge: "Best Choice 2025",
+}
 ]
 
 export default function BenefitsSection() {
@@ -75,11 +82,11 @@ export default function BenefitsSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-5xl md:text-6xl font-light text-[#518591] mb-6">
-            The{" "}
+            Why{" "}
             <span className="bg-gradient-to-r from-[#518591] to-[#e3b01c] bg-clip-text text-transparent font-medium">
               VitaMind
             </span>{" "}
-            Advantage
+            is unique
           </h2>
           <p className="text-lg md:text-xl text-[#518591]/80 max-w-3xl mx-auto">
             Discover what makes us different — from emotional intelligence to privacy-first innovation.
